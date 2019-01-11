@@ -26,8 +26,13 @@
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
-
-
+		
+		<!-- Dang Ký -->
+		<action name="LuuDuLieuKhachHang" class="core.controller.Controller_TaiKhoanKhachHang"
+			method="saveOrUpdateDK">
+			<result name="SUCCESS">/login.jsp</result>
+			<result name="FAIL">/dangky.jsp</result>
+		</action>
 
 
 

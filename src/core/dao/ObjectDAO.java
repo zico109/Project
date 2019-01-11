@@ -76,7 +76,7 @@ public abstract class ObjectDAO<T> {
 		return DAO.delete(object);
 	}
 
-	// Ho Van Bi - 30/5/2018
+
 	public ArrayList<T> pagination(String query, long maxResult, long firstResult) {
 		List list = DAO.pagination(query, table, maxResult, firstResult);
 		ArrayList<T> result = new ArrayList<>();

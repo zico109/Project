@@ -59,7 +59,7 @@
 
 </style>
 <body>
-	<img src="content/images/background.jpg" id="bg" alt="">
+	<img src="images/background.jpg" id="bg" alt="">
 	<div class="container-fluid" style="margin: 0; margin-top: 20;">
 		<div class="row" style="padding-top: 30px;">
 			<div class="col-md-4">
@@ -67,28 +67,28 @@
 					<div class="panel-heading" style="text-align: center;">
 						<p class="panel-title">
 							<img src="content/images/logo.png" width="50px" height="50px" /><br />
-							ĐỒ ÁN TỐT NGHIỆP <br /> Hệ thống hỗ trợ công tác sinh viên
+							ĐỒ ÁN TỐT NGHIỆP <br /> Hệ thống quản lý hostel và đăng ký trực tuyến
 						</p>
 					</div>
 					<div class="panel-body">
 						<form role="form" action="dangNhap.action" method="post">
 							<fieldset>
 								<div class="form-group" style="color: red; text-align: center;"><%=err%></div>
-								<div class="form-group">Sử dụng email UTC2</div>
-								<div class="form-group">
-									<a
-										href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/kTXSmart1/OAuth2Callback&response_type=code&client_id=422616927466-0l37ttainuaj41orpkboqnn6o6m4sja3.apps.googleusercontent.com&approval_prompt=force"
-										class="btn btn-danger" style="width: 100%"> <i
-										class="fa fa-google-plus"></i> Đăng nhập
-									</a>
-								</div>
-								<div class="form-group">
-									<hr />
-									Hoặc dùng tài khoản eUSmart
-								</div>
+<!-- 								<div class="form-group">Sử dụng email UTC2</div> -->
+<!-- 								<div class="form-group"> -->
+<!-- 									<a -->
+<!-- 										href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/Project/OAuth2Callback&response_type=code&client_id=422616927466-0l37ttainuaj41orpkboqnn6o6m4sja3.apps.googleusercontent.com&approval_prompt=force" -->
+<!-- 										class="btn btn-danger" style="width: 100%"> <i -->
+<!-- 										class="fa fa-google-plus"></i> Đăng nhập -->
+<!-- 									</a> -->
+<!-- 								</div> -->
+<!-- 								<div class="form-group"> -->
+<!-- 									<hr /> -->
+<!-- 									Hoặc dùng tài khoản eUSmart -->
+<!-- 								</div> -->
 								<div class="form-group">
 									<input class="form-control" placeholder="Tài khoản"
-										name="maDangNhap" type="email" autofocus>
+										name="maDangNhap" type="text" autofocus>
 								</div>
 								<div class="form-group">
 									<input class="form-control" placeholder="Mật khẩu"
@@ -106,13 +106,13 @@
 			</div>
 		</div>
 		<div class="footer">
-			<hr />
-			<p style="color: white;">
-				Đồ án tốt nghiệp: Hỗ trợ công tác sinh viên <br /> Sinh viên thực
-				hiện:  <br />Địa chỉ: 450, Lê Văn Việt, P. Tăng Nhơn Phú
-				A, Q.9, TP. HCM, ĐT: 0988 432 897
-			</p>
-			<hr />
+<!-- 			<hr /> -->
+<!-- 			<p style="color: black;"> -->
+<!-- 				Đồ án tốt nghiệp: Quản lý hostel và đăng ký trực tuyến <br /> Sinh viên thực -->
+<!-- 				hiện: Đào Nhật Bình  <br />Địa chỉ: 450, Lê Văn Việt, P. Tăng Nhơn Phú -->
+<!-- 				A, Q.9, TP. HCM<br /> ĐT: 0902 341 009 -->
+<!-- 			</p> -->
+<!-- 			<hr /> -->
 		</div>
 	</div>
 	<!-- jQuery -->

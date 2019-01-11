@@ -24,6 +24,7 @@ public class Controller_TaiKhoanKhachHang extends TaiKhoanKhachHang implements Z
 	String tuKhoa;
 	String duongDanTrang = "pages/taikhoankhachhangs.jsp";
 	String duongDanTrangView = "pages/taikhoankhachhang.jsp";
+	String duongDanTrangViewDK = "pages/login.jsp";
 	String tenCotTimDoiTuong = "maKhachHang";
 	String maObj;
 	String maKhachHang;
@@ -232,6 +233,40 @@ public class Controller_TaiKhoanKhachHang extends TaiKhoanKhachHang implements Z
 			return "FAIL";
 		}
 	}
+	
+
+	public String saveOrUpdateDK() {
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpSession session = request.getSession();
+		TaiKhoanKhachHang obj = new TaiKhoanKhachHang();
+		obj.anhDaiDien = getAnhDaiDien();
+		obj.maDangNhap = getMaDangNhap();
+		if (!getMatKhau().equals(getKiemTraMatKhau())) {
+			obj.matKhau = Util_MD5.md5(getMatKhau());
+		} else {
+			obj.matKhau = getKiemTraMatKhau();
+		}
+		obj.ngayTao = getNgayTao();
+		obj.ngayCapNhatMatKhau = new Date();
+		obj.trangThaiHoatDong = isTrangThaiHoatDong();
+		obj.email = getEmail();
+		obj.hoVaTen = getHoVaTen();
+		obj.ghiChu = getGhiChu();
+		/*obj.thoiGianCapNhat = new Date();*/
+		obj.nhomPhanQuyen = getNhomPhanQuyen();
+		obj.khachHang = getKhachHang();
+		if (dao.saveOrUpdate(obj)) {
+			session.setAttribute("msg", "Cập nhật dữ liệu thành công.");
+			session.setAttribute("obj", obj);
+			session.setAttribute("mode", "viewDetailAndEdit");
+			session.setAttribute("p", duongDanTrangViewDK);
+			return "SUCCESS";
+		} else {
+			return "FAIL";
+		}
+	}
+	
+	
 	/* (non-Javadoc)
 	 * @see core.controller.ZEController#delete()
 	 */

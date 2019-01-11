@@ -4,8 +4,11 @@ import core.model.HoaDonDatPhong;
 import core.model.KhachHang;
 import core.model.LoaiPhong;
 import core.model.NhanVien;
+import core.model.ThongTinDatPhong;
 import core.modelDAO.DAO_HoaDonDatPhong;
 import core.modelDAO.DAO_NhanVien;
+import core.modelDAO.DAO_ThongTinDatPhong;
+import core.modelDAO.DAO_ThongTinGiaoPhong;
 import core.modelDAO.DAO_KhachHang;
 import core.modelDAO.DAO_LoaiPhong;
 import core.utils.Util_Date;
@@ -31,12 +34,13 @@ public class Controller_HoaDonDatPhong extends HoaDonDatPhong implements ZEContr
 	String tenCotTimDoiTuong = "soHD";
 	String maObj;
 	String s_ngayDat;
-	String s_tuNgay;
-	String s_denNgay;
+//	String s_tuNgay;
+//	String s_denNgay;
 	
 	String maKH;
 	String maNV;
 	String maLP;
+	String maThongTinDatPhong;
 	/**
 	 * @return the timKiemTheo
 	 */
@@ -104,33 +108,33 @@ public class Controller_HoaDonDatPhong extends HoaDonDatPhong implements ZEContr
 	/**
 	 * @return the s_tuNgay
 	 */
-	public String getS_tuNgay() {
-		return s_tuNgay;
-	}
-	/**
-	 * @param s_tuNgay the s_tuNgay to set
-	 */
-	public void setS_tuNgay(String s_tuNgay) {
-		this.s_tuNgay = s_tuNgay;
-	}
-	public Date getTuNgay() {
-		return Util_Date.stringToDate(getS_tuNgay());
-	}
-	/**
-	 * @return the s_denNgay
-	 */
-	public String getS_denNgay() {
-		return s_denNgay;
-	}
-	/**
-	 * @param s_denNgay the s_denNgay to set
-	 */
-	public void setS_denNgay(String s_denNgay) {
-		this.s_denNgay = s_denNgay;
-	}
-	public Date getDenNgay() {
-		return Util_Date.stringToDate(getS_denNgay());
-	}
+//	public String getS_tuNgay() {
+//		return s_tuNgay;
+//	}
+//	/**
+//	 * @param s_tuNgay the s_tuNgay to set
+//	 */
+//	public void setS_tuNgay(String s_tuNgay) {
+//		this.s_tuNgay = s_tuNgay;
+//	}
+//	public Date getTuNgay() {
+//		return Util_Date.stringToDate(getS_tuNgay());
+//	}
+//	/**
+//	 * @return the s_denNgay
+//	 */
+//	public String getS_denNgay() {
+//		return s_denNgay;
+//	}
+//	/**
+//	 * @param s_denNgay the s_denNgay to set
+//	 */
+//	public void setS_denNgay(String s_denNgay) {
+//		this.s_denNgay = s_denNgay;
+//	}
+//	public Date getDenNgay() {
+//		return Util_Date.stringToDate(getS_denNgay());
+//	}
 	/**
 	 * @return the maKH
 	 */
@@ -197,6 +201,27 @@ public class Controller_HoaDonDatPhong extends HoaDonDatPhong implements ZEContr
 		else
 			return null;
 	}
+	/**
+	 * @return the maThongTinGiaoPhong
+	 */
+	public String getMaThongTinDatPhong() {
+		return maThongTinDatPhong;
+	}
+	/**
+	 * @param maThongTinGiaoPhong the maThongTinGiaoPhong to set
+	 */
+	public void setMaThongTinDatPhong(String maThongTinDatPhong) {
+		this.maThongTinDatPhong = maThongTinDatPhong;
+	}
+	
+	public ThongTinDatPhong getThongTinDatPhong() {
+		ObjectDAO dao_ThongTinDatPhong = new DAO_ThongTinDatPhong();
+		ArrayList<ThongTinDatPhong> list_thongTinDatPhong = dao_ThongTinDatPhong.listByColumns("maThongTinDatPhong", getMaThongTinDatPhong());
+		if(list_thongTinDatPhong.size()>0)
+			return list_thongTinDatPhong.get(0);
+		else
+			return null;
+	}
 	@Override
 	public String addNew() {
 		HttpServletRequest request = ServletActionContext.getRequest();
@@ -251,12 +276,13 @@ public class Controller_HoaDonDatPhong extends HoaDonDatPhong implements ZEContr
 		obj.soHD = getSoHD();
 		obj.trangThaiThanhToan = getTrangThaiThanhToan();
 		obj.ngayDat = getNgayDat();
-		obj.tuNgay = getTuNgay();
-		obj.denNgay = getDenNgay();
+//		obj.tuNgay = getTuNgay();
+//		obj.denNgay = getDenNgay();
 		obj.thanhTien = getThanhTien();
 		obj.loaiPhong = getLoaiPhong();
 		obj.nhanVien = getNhanVien();
 		obj.khachHang = getKhachHang();
+		obj.thongTinDatPhong = getThongTinDatPhong();
 		if (dao.saveOrUpdate(obj)) {
 			session.setAttribute("msg", "Cập nhật dữ liệu thành công");
 			session.setAttribute("obj", obj);

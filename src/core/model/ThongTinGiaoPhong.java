@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 public class ThongTinGiaoPhong implements Comparable<ThongTinGiaoPhong> {
 	@Id
 	public String maThongTinGiaoPhong;
-	public boolean trangThaiGiaoPhong;
+	public String trangThaiGiaoPhong;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	public HoaDonDatPhong hoaDonDatPhong;
@@ -33,7 +33,7 @@ public class ThongTinGiaoPhong implements Comparable<ThongTinGiaoPhong> {
 	 * @param khachHang
 	 * @param phong
 	 */
-	public ThongTinGiaoPhong(String maThongTinGiaoPhong, boolean trangThaiGiaoPhong,
+	public ThongTinGiaoPhong(String maThongTinGiaoPhong, String trangThaiGiaoPhong,
 			core.model.HoaDonDatPhong hoaDonDatPhong, core.model.KhachHang khachHang, core.model.Phong phong) {
 		this.maThongTinGiaoPhong = maThongTinGiaoPhong;
 		this.trangThaiGiaoPhong = trangThaiGiaoPhong;
@@ -60,7 +60,7 @@ public class ThongTinGiaoPhong implements Comparable<ThongTinGiaoPhong> {
 	/**
 	 * @return the trangThaiGiaoPhong
 	 */
-	public boolean isTrangThaiGiaoPhong() {
+	public String getTrangThaiGiaoPhong() {
 		return trangThaiGiaoPhong;
 	}
 
@@ -68,7 +68,7 @@ public class ThongTinGiaoPhong implements Comparable<ThongTinGiaoPhong> {
 	 * @param trangThaiGiaoPhong
 	 *            the trangThaiGiaoPhong to set
 	 */
-	public void setTrangThaiGiaoPhong(boolean trangThaiGiaoPhong) {
+	public void setTrangThaiGiaoPhong(String trangThaiGiaoPhong) {
 		this.trangThaiGiaoPhong = trangThaiGiaoPhong;
 	}
 
@@ -129,9 +129,9 @@ public class ThongTinGiaoPhong implements Comparable<ThongTinGiaoPhong> {
 		int result = 1;
 		result = prime * result + ((hoaDonDatPhong == null) ? 0 : hoaDonDatPhong.hashCode());
 		result = prime * result + ((khachHang == null) ? 0 : khachHang.hashCode());
-		result = prime * result + ((phong == null) ? 0 : phong.hashCode());
 		result = prime * result + ((maThongTinGiaoPhong == null) ? 0 : maThongTinGiaoPhong.hashCode());
-		result = prime * result + (trangThaiGiaoPhong ? 1231 : 1237);
+		result = prime * result + ((phong == null) ? 0 : phong.hashCode());
+		result = prime * result + ((trangThaiGiaoPhong == null) ? 0 : trangThaiGiaoPhong.hashCode());
 		return result;
 	}
 
@@ -157,17 +157,20 @@ public class ThongTinGiaoPhong implements Comparable<ThongTinGiaoPhong> {
 				return false;
 		} else if (!khachHang.equals(other.khachHang))
 			return false;
-		if (phong == null) {
-			if (other.phong != null)
-				return false;
-		} else if (!phong.equals(other.phong))
-			return false;
 		if (maThongTinGiaoPhong == null) {
 			if (other.maThongTinGiaoPhong != null)
 				return false;
 		} else if (!maThongTinGiaoPhong.equals(other.maThongTinGiaoPhong))
 			return false;
-		if (trangThaiGiaoPhong != other.trangThaiGiaoPhong)
+		if (phong == null) {
+			if (other.phong != null)
+				return false;
+		} else if (!phong.equals(other.phong))
+			return false;
+		if (trangThaiGiaoPhong == null) {
+			if (other.trangThaiGiaoPhong != null)
+				return false;
+		} else if (!trangThaiGiaoPhong.equals(other.trangThaiGiaoPhong))
 			return false;
 		return true;
 	}

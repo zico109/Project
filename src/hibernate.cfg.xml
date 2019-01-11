@@ -37,7 +37,7 @@
 		<mapping class="core.model.TaiKhoanNhanVien" />
 		<mapping class="core.model.TaiKhoanKhachHang" />
 		<mapping class="core.model.Giuong" />
-		
+		<mapping class="core.model.ThongTinDatPhong" />
 		
 	</session-factory>
 </hibernate-configuration>

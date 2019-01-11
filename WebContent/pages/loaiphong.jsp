@@ -10,8 +10,8 @@
 	String tenLop = "LoaiPhong";
 	String tenTrang = "Quản lý loại phòng";
 	String trangDanhSach = "index.jsp?p=pages/phongs.jsp";
-	String[] tk_value = { "maLP", "tenLP", "giaLP", "tienNghi", "soLuongPhong" };
-	String[] tk_show = { "Mã Loại Phòng", "Tên Loại Phòng", "Giá Loại Phòng", "Tiện nghi", "Số Lượng Phòng" };
+	String[] tk_value = { "maLP", "tenLP", "giaLP", "tienNghi", "soLuongPhong", "anh" };
+	String[] tk_show = { "Mã Loại Phòng", "Tên Loại Phòng", "Giá Loại Phòng", "Tiện nghi", "Số Lượng Phòng","Ảnh" };
 %>
 <%@ include file="../../hostelPartial/code-header.jsp"%>
 
@@ -82,6 +82,12 @@
 									<label>Số lượng phòng</label> <input class="form-control"
 										name="soLuongPhong"
 										value="<%=(obj != null ? obj.getSoLuongPhong() : "")%>"
+										<%=(modeView ? " disabled " : "")%>>
+								</div>
+								<div class="form-group">
+									<label>Ảnh</label> <input class="form-control"
+										name="anh"
+										value="<%=(obj != null ? obj.getAnh() : "")%>"
 										<%=(modeView ? " disabled " : "")%>>
 								</div>
 							</div>

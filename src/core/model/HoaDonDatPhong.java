@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 
 
@@ -21,8 +22,8 @@ public class HoaDonDatPhong implements Comparable<HoaDonDatPhong> {
 	public String soHD;
 	public String trangThaiThanhToan;
 	public Date ngayDat;
-	public Date tuNgay;
-	public Date denNgay;
+/*	public Date tuNgay;
+	public Date denNgay;*/
 	public long thanhTien;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -31,6 +32,8 @@ public class HoaDonDatPhong implements Comparable<HoaDonDatPhong> {
 	public NhanVien nhanVien;
 	@ManyToOne(fetch = FetchType.EAGER)
 	public LoaiPhong loaiPhong;
+	@OneToOne
+	public ThongTinDatPhong thongTinDatPhong;
 	
 
 	/**
@@ -53,17 +56,32 @@ public class HoaDonDatPhong implements Comparable<HoaDonDatPhong> {
 	 */
 	public HoaDonDatPhong(String soHD, String trangThaiThanhToan, Date ngayDat, Date tuNgay, Date denNgay,
 			long thanhTien, core.model.KhachHang khachHang, core.model.NhanVien nhanVien,
-			core.model.LoaiPhong loaiPhong) {
+			core.model.LoaiPhong loaiPhong, core.model.ThongTinDatPhong thongTinDatPhong) {
 		this.soHD = soHD;
 		this.trangThaiThanhToan = trangThaiThanhToan;
 		this.ngayDat = ngayDat;
-		this.tuNgay = tuNgay;
-		this.denNgay = denNgay;
+/*		this.tuNgay = tuNgay;
+		this.denNgay = denNgay;*/
 		this.thanhTien = thanhTien;
 		khachHang = khachHang;
 		nhanVien = nhanVien;
 		loaiPhong = loaiPhong;
+		thongTinDatPhong = thongTinDatPhong;
 		
+	}
+
+	/**
+	 * @return the thongTinDatPhong
+	 */
+	public ThongTinDatPhong getThongTinDatPhong() {
+		return thongTinDatPhong;
+	}
+
+	/**
+	 * @param thongTinDatPhong the thongTinDatPhong to set
+	 */
+	public void setThongTinDatPhong(ThongTinDatPhong thongTinDatPhong) {
+		this.thongTinDatPhong = thongTinDatPhong;
 	}
 
 	/**
@@ -108,33 +126,33 @@ public class HoaDonDatPhong implements Comparable<HoaDonDatPhong> {
 		this.ngayDat = ngayDat;
 	}
 
-	/**
-	 * @return the tuNgay
-	 */
-	public Date getTuNgay() {
-		return tuNgay;
-	}
-
-	/**
-	 * @param tuNgay the tuNgay to set
-	 */
-	public void setTuNgay(Date tuNgay) {
-		this.tuNgay = tuNgay;
-	}
-
-	/**
-	 * @return the denNgay
-	 */
-	public Date getDenNgay() {
-		return denNgay;
-	}
-
-	/**
-	 * @param denNgay the denNgay to set
-	 */
-	public void setDenNgay(Date denNgay) {
-		this.denNgay = denNgay;
-	}
+//	/**
+//	 * @return the tuNgay
+//	 */
+//	public Date getTuNgay() {
+//		return tuNgay;
+//	}
+//
+//	/**
+//	 * @param tuNgay the tuNgay to set
+//	 */
+//	public void setTuNgay(Date tuNgay) {
+//		this.tuNgay = tuNgay;
+//	}
+//
+//	/**
+//	 * @return the denNgay
+//	 */
+//	public Date getDenNgay() {
+//		return denNgay;
+//	}
+//
+//	/**
+//	 * @param denNgay the denNgay to set
+//	 */
+//	public void setDenNgay(Date denNgay) {
+//		this.denNgay = denNgay;
+//	}
 
 	/**
 	 * @return the thanhTien
@@ -201,15 +219,16 @@ public class HoaDonDatPhong implements Comparable<HoaDonDatPhong> {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+//		result = prime * result + ((denNgay == null) ? 0 : denNgay.hashCode());
 		result = prime * result + ((khachHang == null) ? 0 : khachHang.hashCode());
-		result = prime * result + ((nhanVien == null) ? 0 : nhanVien.hashCode());
-		result = prime * result + ((nhanVien == null) ? 0 : nhanVien.hashCode());
-		result = prime * result + ((denNgay == null) ? 0 : denNgay.hashCode());
+		result = prime * result + ((loaiPhong == null) ? 0 : loaiPhong.hashCode());
 		result = prime * result + ((ngayDat == null) ? 0 : ngayDat.hashCode());
+		result = prime * result + ((nhanVien == null) ? 0 : nhanVien.hashCode());
 		result = prime * result + ((soHD == null) ? 0 : soHD.hashCode());
 		result = prime * result + (int) (thanhTien ^ (thanhTien >>> 32));
+		result = prime * result + ((thongTinDatPhong == null) ? 0 : thongTinDatPhong.hashCode());
 		result = prime * result + ((trangThaiThanhToan == null) ? 0 : trangThaiThanhToan.hashCode());
-		result = prime * result + ((tuNgay == null) ? 0 : tuNgay.hashCode());
+//		result = prime * result + ((tuNgay == null) ? 0 : tuNgay.hashCode());
 		return result;
 	}
 
@@ -225,6 +244,11 @@ public class HoaDonDatPhong implements Comparable<HoaDonDatPhong> {
 		if (getClass() != obj.getClass())
 			return false;
 		HoaDonDatPhong other = (HoaDonDatPhong) obj;
+//		if (denNgay == null) {
+//			if (other.denNgay != null)
+//				return false;
+//		} else if (!denNgay.equals(other.denNgay))
+//			return false;
 		if (khachHang == null) {
 			if (other.khachHang != null)
 				return false;
@@ -235,20 +259,15 @@ public class HoaDonDatPhong implements Comparable<HoaDonDatPhong> {
 				return false;
 		} else if (!loaiPhong.equals(other.loaiPhong))
 			return false;
-		if (nhanVien == null) {
-			if (other.nhanVien != null)
-				return false;
-		} else if (!nhanVien.equals(other.nhanVien))
-			return false;
-		if (denNgay == null) {
-			if (other.denNgay != null)
-				return false;
-		} else if (!denNgay.equals(other.denNgay))
-			return false;
 		if (ngayDat == null) {
 			if (other.ngayDat != null)
 				return false;
 		} else if (!ngayDat.equals(other.ngayDat))
+			return false;
+		if (nhanVien == null) {
+			if (other.nhanVien != null)
+				return false;
+		} else if (!nhanVien.equals(other.nhanVien))
 			return false;
 		if (soHD == null) {
 			if (other.soHD != null)
@@ -257,16 +276,21 @@ public class HoaDonDatPhong implements Comparable<HoaDonDatPhong> {
 			return false;
 		if (thanhTien != other.thanhTien)
 			return false;
+		if (thongTinDatPhong == null) {
+			if (other.thongTinDatPhong != null)
+				return false;
+		} else if (!thongTinDatPhong.equals(other.thongTinDatPhong))
+			return false;
 		if (trangThaiThanhToan == null) {
 			if (other.trangThaiThanhToan != null)
 				return false;
 		} else if (!trangThaiThanhToan.equals(other.trangThaiThanhToan))
 			return false;
-		if (tuNgay == null) {
-			if (other.tuNgay != null)
-				return false;
-		} else if (!tuNgay.equals(other.tuNgay))
-			return false;
+//		if (tuNgay == null) {
+//			if (other.tuNgay != null)
+//				return false;
+//		} else if (!tuNgay.equals(other.tuNgay))
+//			return false;
 		return true;
 	}
 
@@ -279,8 +303,9 @@ public class HoaDonDatPhong implements Comparable<HoaDonDatPhong> {
 	@Override
 	public String toString() {
 		return "HoaDonDatPhong [soHD=" + soHD + ", trangThaiThanhToan=" + trangThaiThanhToan + ", ngayDat=" + ngayDat
-				+ ", tuNgay=" + tuNgay + ", denNgay=" + denNgay + ", thanhTien=" + thanhTien + ", KhachHang="
-				+ khachHang + ", NhanVien=" + nhanVien + ", LoaiPhong=" + loaiPhong + "]";
+//				+ ", tuNgay=" + tuNgay + ", denNgay=" + denNgay + ", thanhTien=" + thanhTien + ", khachHang="
+				+ khachHang + ", nhanVien=" + nhanVien + ", loaiPhong=" + loaiPhong + ", thongTinDatPhong="
+				+ thongTinDatPhong + "]";
 	}
 
 	@Override

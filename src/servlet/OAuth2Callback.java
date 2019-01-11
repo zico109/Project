@@ -56,9 +56,9 @@ public class OAuth2Callback extends HttpServlet {
 			String code = request.getParameter("code");
 			// format parameters to post
 			String urlParameters = "code=" + code
-					+ "&client_id=422616927466-0l37ttainuaj41orpkboqnn6o6m4sja3.apps.googleusercontent.com"
+					+ "&client_id=216959812644-vjjtnl3hsfh433bd94vvc7l73jupp676.apps.googleusercontent.com"
 					+ "&client_secret=JKOGjivXI0a6C5oBRhKwnvwP"
-					+ "&redirect_uri=http://localhost:8080/kTXSmart1/OAuth2Callback" + "&grant_type=authorization_code";
+					+ "&redirect_uri=http://localhost:3306/Project/OAuth2Callback" + "&grant_type=authorization_code";
 
 			// post parameters
 			URL url = new URL("https://accounts.google.com/o/oauth2/token");

@@ -39,7 +39,7 @@
           <li class="nav-item"><a href="about.jsp" class="nav-link">About Us</a></li>
           <li class="nav-item"><a href="contact.jsp" class="nav-link">Contact</a></li>
           <li class="nav-item"><a href="blog.jsp" class="nav-link">Blog</a></li>    
-          <li class="nav-item"><a href="index.jsp" class="nav-link">Account</a></li>         
+          <li class="nav-item"><a href="login.jsp" class="nav-link">Login</a></li>         
 
         </ul>
       </div>

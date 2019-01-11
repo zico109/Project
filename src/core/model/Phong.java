@@ -31,7 +31,7 @@ public class Phong implements Comparable<Phong> {
 	 * @param thoiGianCapNhat
 	 * @param loaiPhong
 	 */
-	public Phong(String maPhong, String tenPhong, String soLuongNguoi, String trangThai, Date thoiGianCapNhat,
+	public Phong(String maPhong, String tenPhong, String soLuongNguoi, String trangThai, Date thoiGianCapNhat, String anh,
 			core.model.LoaiPhong loaiPhong) {
 		this.maPhong = maPhong;
 		this.tenPhong = tenPhong;

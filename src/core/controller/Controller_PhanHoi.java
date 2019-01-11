@@ -1,75 +1,124 @@
 package core.controller;
 
-import core.model.LoaiPhong;
-import core.modelDAO.DAO_LoaiPhong;
-
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
+import core.controller.ZEController;
 import core.dao.ObjectDAO;
+import core.model.KhachHang;
+import core.modelDAO.DAO_KhachHang;
+import core.utils.Util_Date;
+import core.model.PhanHoi;
+import core.modelDAO.DAO_PhanHoi;
 
-public class Controller_LoaiPhong extends LoaiPhong implements ZEController{
-	ObjectDAO dao = new DAO_LoaiPhong();
+public class Controller_PhanHoi extends PhanHoi implements ZEController<PhanHoi> {
+	ObjectDAO dao = new DAO_PhanHoi();
 
 	String timKiemTheo;
 	String tuKhoa;
-	String duongDanTrang = "pages/loaiphongs.jsp";
-	String duongDanTrangView = "pages/loaiphong.jsp";
-	String tenCotTimDoiTuong = "maLP";
+	String duongDanTrang = "core/pages/phanhois.jsp";
+	String duongDanTrangView = "core/pages/phanhoi.jsp";
+	String tenCotTimDoiTuong = "maPhanHoi";
 	String maObj;
-	/**
-	 * @return the timKiemTheo
-	 */
+	String maKH;
+	String s_ngayPhanHoi;
+	String s_thoiGianCapNhat;
+
 	public String getTimKiemTheo() {
 		return timKiemTheo;
 	}
-	/**
-	 * @param timKiemTheo the timKiemTheo to set
-	 */
+
 	public void setTimKiemTheo(String timKiemTheo) {
 		this.timKiemTheo = timKiemTheo;
 	}
-	/**
-	 * @return the tuKhoa
-	 */
+
 	public String getTuKhoa() {
 		return tuKhoa;
 	}
-	/**
-	 * @param tuKhoa the tuKhoa to set
-	 */
+
 	public void setTuKhoa(String tuKhoa) {
 		this.tuKhoa = tuKhoa;
 	}
-	/**
-	 * @return the tenCotTimDoiTuong
-	 */
+
+	public String getDuongDanTrang() {
+		return duongDanTrang;
+	}
+
+	public void setDuongDanTrang(String duongDanTrang) {
+		this.duongDanTrang = duongDanTrang;
+	}
+
+	public String getDuongDanTrangView() {
+		return duongDanTrangView;
+	}
+
+	public void setDuongDanTrangView(String duongDanTrangView) {
+		this.duongDanTrangView = duongDanTrangView;
+	}
+
 	public String getTenCotTimDoiTuong() {
 		return tenCotTimDoiTuong;
 	}
-	/**
-	 * @param tenCotTimDoiTuong the tenCotTimDoiTuong to set
-	 */
+
 	public void setTenCotTimDoiTuong(String tenCotTimDoiTuong) {
 		this.tenCotTimDoiTuong = tenCotTimDoiTuong;
 	}
-	/**
-	 * @return the maObj
-	 */
+
 	public String getMaObj() {
 		return maObj;
 	}
-	/**
-	 * @param maObj the maObj to set
-	 */
+
 	public void setMaObj(String maObj) {
 		this.maObj = maObj;
 	}
+
+
+	public String getMaKH() {
+		return maKH;
+	}
+
+	public void setMaKH(String maKH) {
+		this.maKH = maKH;
+	}
+
+	public KhachHang getKhachHang() {
+		ObjectDAO<KhachHang> dao_khachhang= new DAO_KhachHang();
+		ArrayList<KhachHang> list_khachhang= dao_khachhang.listByColumns("maSinhVien", getMaKH());
+		if(list_khachhang.size()>0)
+			return list_khachhang.get(0);
+		else
+			return null;
+
+	}
+
+	public String getS_ngayPhanHoi() {
+		return s_ngayPhanHoi;
+	}
+
+	public void setS_ngayPhanHoi(String s_ngayPhanHoi) {
+		this.s_ngayPhanHoi = s_ngayPhanHoi;
+	}
+	public Date getNgayPhanHoi() {
+		return Util_Date.stringToDate(getS_ngayPhanHoi());
+	}
+
+	public String getS_thoiGianCapNhat() {
+		return s_thoiGianCapNhat;
+	}
+
+	public void setS_thoiGianCapNhat(String s_thoiGianCapNhat) {
+		this.s_thoiGianCapNhat = s_thoiGianCapNhat;
+	}
+	public Date getThoiGianCapNhat() {
+		return Util_Date.stringToDate(getS_thoiGianCapNhat());
+	}
+
 	@Override
 	public String addNew() {
 		HttpServletRequest request = ServletActionContext.getRequest();
@@ -80,6 +129,7 @@ public class Controller_LoaiPhong extends LoaiPhong implements ZEController{
 		session.setAttribute("obj", null);
 		return "SUCCESS";
 	}
+
 	@Override
 	public String viewDetail() {
 		HttpServletRequest request = ServletActionContext.getRequest();
@@ -89,7 +139,7 @@ public class Controller_LoaiPhong extends LoaiPhong implements ZEController{
 
 		session.setAttribute("mode", "viewDetail");
 
-		ArrayList<LoaiPhong> arr = dao.listByColumnLike(tenCotTimDoiTuong, maobj);
+		ArrayList<PhanHoi> arr = dao.listByColumnLike(tenCotTimDoiTuong, maobj);
 		if (arr.size() > 0) {
 			session.setAttribute("obj", arr.get(0));
 			session.setAttribute("p", duongDanTrangView);
@@ -98,6 +148,7 @@ public class Controller_LoaiPhong extends LoaiPhong implements ZEController{
 			return "FAIL";
 		}
 	}
+
 	@Override
 	public String viewDetailAndEdit() {
 		HttpServletRequest request = ServletActionContext.getRequest();
@@ -106,7 +157,7 @@ public class Controller_LoaiPhong extends LoaiPhong implements ZEController{
 
 		String maobj = request.getParameter("maobj");
 		session.setAttribute("mode", "viewDetailAndEdit");
-		ArrayList<LoaiPhong> arr = dao.listByColumnLike(tenCotTimDoiTuong, maobj);
+		ArrayList<PhanHoi> arr = dao.listByColumnLike(tenCotTimDoiTuong, maobj);
 		if (arr.size() > 0) {
 			session.setAttribute("obj", arr.get(0));
 			session.setAttribute("p", duongDanTrangView);
@@ -115,18 +166,18 @@ public class Controller_LoaiPhong extends LoaiPhong implements ZEController{
 			return "FAIL";
 		}
 	}
+
 	@Override
 	public String saveOrUpdate() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
 
-		LoaiPhong obj = new LoaiPhong();
-		obj.maLP = getMaLP();
-		obj.tenLP = getTenLP();
-		obj.giaLP = getGiaLP();
-		obj.tienNghi = getTienNghi();
-		obj.soLuongPhong = getSoLuongPhong();	
-		obj.anh = getAnh();
+		PhanHoi obj = new PhanHoi();
+		obj.maPhanHoi = getMaPhanHoi();
+		obj.khachHang=getKhachHang();
+		obj.noiDungPhanHoi=getNoiDungPhanHoi();
+		obj.ngayPhanHoi=getNgayPhanHoi();
+//		obj.thoiGianCapNhat = new Date();
 		if (dao.saveOrUpdate(obj)) {
 			session.setAttribute("msg", "Cập nhật dữ liệu thành công");
 			session.setAttribute("obj", obj);
@@ -137,13 +188,14 @@ public class Controller_LoaiPhong extends LoaiPhong implements ZEController{
 			return "FAIL";
 		}
 	}
+
 	@Override
 	public String delete() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
 		String maobj = request.getParameter("maobj");
-		LoaiPhong obj = new LoaiPhong();
-		obj.setMaLP(maobj);
+		PhanHoi obj = new PhanHoi();
+		obj.setMaPhanHoi(maobj);
 		if (dao.delete(obj)) {
 			session.setAttribute("msg", "Xóa dữ liệu thành công");
 			session.setAttribute("p", duongDanTrang);
@@ -152,18 +204,20 @@ public class Controller_LoaiPhong extends LoaiPhong implements ZEController{
 			return "FAIL";
 		}
 	}
+
 	@Override
 	public String search() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
 		String column = getTimKiemTheo();
 		String key = getTuKhoa();
-		ArrayList<LoaiPhong> arr = dao.listByColumnLike(column, key);
+		ArrayList<PhanHoi> arr = dao.listByColumnLike(column, key);
 		session.setAttribute("arr", arr);
 		session.setAttribute("checkTimKiem", "true");
 		session.setAttribute("p", duongDanTrang);
 		return "SUCCESS";
 	}
+
 	@Override
 	public String refresh() {
 		HttpServletRequest request = ServletActionContext.getRequest();
@@ -174,17 +228,17 @@ public class Controller_LoaiPhong extends LoaiPhong implements ZEController{
 		session.setAttribute("p", duongDanTrang);
 		return "SUCCESS";
 	}
+
 	@Override
 	public String importData() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 	@Override
 	public String exportData() throws IOException {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	
 
 }

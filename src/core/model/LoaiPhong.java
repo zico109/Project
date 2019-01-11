@@ -19,7 +19,7 @@ public class LoaiPhong implements Comparable<LoaiPhong> {
 	public long giaLP;
 	public String tienNghi;
 	public String soLuongPhong;
-	
+	public String anh;
 	
 
 
@@ -38,14 +38,31 @@ public class LoaiPhong implements Comparable<LoaiPhong> {
 	 * @param soLuongPhong
 	 * @param hoaDonDatPhongs
 	 */
-	public LoaiPhong(String maLP, String tenLP, long giaLP, String tienNghi, String soLuongPhong
+	public LoaiPhong(String maLP, String tenLP, long giaLP, String tienNghi, String soLuongPhong, String anh
 		) {
 		this.maLP = maLP;
 		this.tenLP = tenLP;
 		this.giaLP = giaLP;
 		this.tienNghi = tienNghi;
 		this.soLuongPhong = soLuongPhong;
+		this.anh = anh;
 		
+	}
+
+
+	/**
+	 * @return the anh
+	 */
+	public String getAnh() {
+		return anh;
+	}
+
+
+	/**
+	 * @param anh the anh to set
+	 */
+	public void setAnh(String anh) {
+		this.anh = anh;
 	}
 
 
@@ -137,6 +154,7 @@ public class LoaiPhong implements Comparable<LoaiPhong> {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((anh == null) ? 0 : anh.hashCode());
 		result = prime * result + (int) (giaLP ^ (giaLP >>> 32));
 		result = prime * result + ((maLP == null) ? 0 : maLP.hashCode());
 		result = prime * result + ((soLuongPhong == null) ? 0 : soLuongPhong.hashCode());
@@ -158,6 +176,11 @@ public class LoaiPhong implements Comparable<LoaiPhong> {
 		if (getClass() != obj.getClass())
 			return false;
 		LoaiPhong other = (LoaiPhong) obj;
+		if (anh == null) {
+			if (other.anh != null)
+				return false;
+		} else if (!anh.equals(other.anh))
+			return false;
 		if (giaLP != other.giaLP)
 			return false;
 		if (maLP == null) {
@@ -191,7 +214,7 @@ public class LoaiPhong implements Comparable<LoaiPhong> {
 	@Override
 	public String toString() {
 		return "LoaiPhong [maLP=" + maLP + ", tenLP=" + tenLP + ", giaLP=" + giaLP + ", tienNghi=" + tienNghi
-				+ ", soLuongPhong=" + soLuongPhong + "]";
+				+ ", soLuongPhong=" + soLuongPhong + ", anh=" + anh + "]";
 	}
 
 

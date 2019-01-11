@@ -1,38 +1,39 @@
 <%@page import="core.utils.Util_Date"%>
-<%@page import="core.model.LoaiPhong"%>
+<%@page import="core.model.ThongTinGiaoPhong"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.lang.reflect.Array"%>
-<%@page import="core.modelDAO.DAO_LoaiPhong"%>
+<%@page import="core.modelDAO.DAO_ThongTinGiaoPhong"%>
 <%@page import="core.dao.ObjectDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%
-	String tenLop = "LoaiPhong";
-	String tenTrang = "Quản lý loại phòng";
-	String trangDanhSach = "index.jsp?p=pages/phongs.jsp";
-	String[] tk_value = { "maLP", "tenLP", "giaLP", "tienNghi", "soLuongPhong", "anh" };
-	String[] tk_show = { "Mã Loại Phòng", "Tên Loại Phòng", "Giá Loại Phòng", "Tiện nghi", "Số Lượng Phòng", "Ảnh" };
+	String tenLop = "ThongTinGiaoPhong";
+	String tenTrang = "Quản lý thông tin giao phòng";
+	String trangDanhSach = "index.jsp?p=pages/thongtingiaophongs.jsp";
+	String[] tk_value = { "maThongTinGiaoPhong", "trangThaiGiaoPhong", "hoaDonDatPhong", "khachHang", "phong" };
+	String[] tk_show = { "Mã thông tin giao phòng", "Trạng thái giao phòng", "Hóa đơn đặt phòng", "Khách hàng",
+			"Phòng" };
 %>
 
 <%@ include file="../../hostelPartial/code-header.jsp"%>
 
 <%
-	ObjectDAO<LoaiPhong> dao = new DAO_LoaiPhong();
+	ObjectDAO<ThongTinGiaoPhong> dao = new DAO_ThongTinGiaoPhong();
 
-	ArrayList<LoaiPhong> list = new ArrayList<LoaiPhong>();
+	ArrayList<ThongTinGiaoPhong> list = new ArrayList<ThongTinGiaoPhong>();
 
 	if (session.getAttribute("checkTimKiem") != null) {
 		ArrayList listTemp = (ArrayList) session.getAttribute("arr");
 		if (listTemp.size() > 0) {
-	if (listTemp.get(0) instanceof LoaiPhong) {
-				list = (ArrayList<LoaiPhong>) listTemp;
+	if (listTemp.get(0) instanceof ThongTinGiaoPhong) {
+				list = (ArrayList<ThongTinGiaoPhong>) listTemp;
 			} else {
 				session.setAttribute("checkTimKiem", null);
 				list = dao.pagination((long) recordPerPage, (long) Long.parseLong(pid) * recordPerPage);
 			}
 		} else
-			list = new ArrayList<LoaiPhong>();
+			list = new ArrayList<ThongTinGiaoPhong>();
 	} else {
 		list = dao.pagination((long) recordPerPage, (long) Long.parseLong(pid) * recordPerPage);
 	}
@@ -58,28 +59,26 @@
 				id="dataTables-example">
 				<thead>
 					<tr>
-						<th>Mã loại phòng</th>
-						<th>Tên loại phòng</th>
-						<th>Giá loại phòng</th>
-						<th>Tiện nghi</th>
-						<th>Số lượng phòng</th>	
-						<th>Ảnh</th>			
+						<th>Mã thông tin giao phòng</th>
+						<th>Trạng thái giao phòng</th>
+						<th>Hóa đơn đặt phòng</th>
+						<th>Khách hàng</th>		
+						<th>Phòng</th>					
 					</tr>
 				</thead>
 				<tbody>
 					<%
-						for (LoaiPhong obj : list) {
+						for (ThongTinGiaoPhong obj : list) {
 							//Bat buoc co de bo vao doan code xem chi tiet, chinh sua va xoa
-							String maDoiTuong = obj.getMaLP();
-							String tenDoiTuong = obj.getTenLP();
+							String maDoiTuong = obj.getMaThongTinGiaoPhong();
+							String tenDoiTuong = obj.getTrangThaiGiaoPhong();
 					%>
 					<tr class="odd gradeX">
-						<td><%=obj.getMaLP() != null ? obj.getMaLP() : ""%></td>
-						<td><%=obj.getTenLP() != null ? obj.getTenLP() : ""%></td>
-						<td><%=obj.getGiaLP() >0 ? obj.getGiaLP(): "" %></td>
-						<td><%=obj.getTienNghi() != null ? obj.getTienNghi(): "" %></td>
-						<td><%=obj.getSoLuongPhong() != null ? obj.getSoLuongPhong(): "" %></td>
-						<td><%=obj.getAnh() != null ? obj.getAnh(): "" %></td>
+						<td><%=obj.getMaThongTinGiaoPhong() != null ? obj.getMaThongTinGiaoPhong() : ""%></td>
+						<td><%=obj.getTrangThaiGiaoPhong() != null ? obj.getTrangThaiGiaoPhong() : ""%></td>
+						<td><%=obj.getHoaDonDatPhong() == null ? "" : obj.getHoaDonDatPhong().getSoHD()%></td>
+						<td><%=obj.getKhachHang() == null ? "" : obj.getKhachHang().getMaKH()%></td>
+						<td><%=obj.getPhong() == null ? "" : obj.getPhong().getMaPhong()%></td>
 						<td style="text-align: center;"><%@ include
 								file="../../hostelPartial/menupullcuadoituong.jsp"%></td>
 					</tr>
