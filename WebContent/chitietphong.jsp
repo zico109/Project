@@ -193,21 +193,13 @@
 <body class="ecommerce">
 
 	<%
-		LoaiPhongDAO loaiPhongDAO = new LoaiPhongDAO();
 		PhongDAO phongDAO = new PhongDAO();
+		Phong phong = new Phong();
 		String maPhong = "";
-		if (request.getParameter("phong") != null) {
-			maPhong = request.getParameter("phong");
+		if (request.getParameter("maPhong") != null) {
+			maPhong = request.getParameter("maPhong");
+			phong = phongDAO.getPhong(maPhong);
 		}
-		String maLP = "";
-		if (request.getParameter("loaiphong") != null) {
-			maLP = request.getParameter("loaiphong");
-		}
-		// 		GioHang cart = (GioHang) session.getAttribute("cart");
-		// 		if (cart == null) {
-		// 			cart = new GioHang();
-		// 			session.setAttribute("cart", cart);
-		// 		}
 	%>
 	<!-- BEGIN HEADER -->
 	<div class="header">
@@ -216,12 +208,12 @@
 				href="javascript:void(0);" class="mobi-toggler"><i
 				class="fa fa-bars"></i></a>
 
+
 			<!-- BEGIN NAVIGATION -->
 			<div class="header-navigation">
 
 				<ul>
 					<li><a href="home.jsp">Trang chủ</a></li>
-
 
 
 					<li class="menu-search"><span class="sep"></span> <i
@@ -261,88 +253,75 @@
 			<!-- BEGIN SIDEBAR & CONTENT -->
 			<div class="row margin-bottom-40">
 				<!-- BEGIN SIDEBAR -->
-				<div class="sidebar col-md-3 col-sm-5">
-					<ul class="list-group margin-bottom-25 sidebar-menu">
-						<li class="list-group-item clearfix"><a
-							href="rooms.jsp"><i class="fa fa-angle-right"></i>Tất
-								cả phòng</a></li>
-					</ul>
-					<%
-						for (LoaiPhong lp : loaiPhongDAO.getListLoaiPhong()) {
-					%>
-					<ul class="list-group margin-bottom-25 sidebar-menu">
-						<li class="list-group-item clearfix"><a
-							href="caterooms.jsp?loaiphong=<%=lp.getMaLP()%>"><i
-								class="fa fa-angle-right"></i><%=lp.getTenLP()%>
-								</a></li>
-								<li class="list-group-item clearfix"><a
-							href="caterooms.jsp?loaiphong=<%=lp.getMaLP()%>"><i
-								class="fa fa-angle-right"></i><%=lp.getGiaLP()%>
-								</a></li>								
-								
-					</ul>
-					<%
-						}
-					%>
-				</div>
+				<div class="sidebar col-md-3 col-sm-5"></div>
 				<!-- BEGIN CONTENT -->
 				<div class="col-md-9 col-sm-7" align="center">
+
 					<div class="row list-view-sorting clearfix">
-						<div class="col-md-2 col-sm-2 list-view">
-							<a href="javascript:;"><i class="fa fa-th-large"></i></a> <a
-								href="javascript:;"><i class="fa fa-th-list"></i></a>
+						<div id="product-pop-up" style="display: none; width: 700px;">
+							<div class="product-page product-pop-up">
+								<div class="row">
+									<div class="col-md-6 col-sm-6 col-xs-9">
+
+										<h1><%=phong.getMaPhong()%></h1>
+										<div class="price-availability-block clearfix">
+
+										</div>
+										<div class="description">
+											<%=phong.getTenPhong()%>
+										</div>
+										<div class="description">
+											<%=phong.getTrangThai()%>
+										</div>
+										<div class="description">
+											<%=phong.getSoLuongNguoi()%>
+										</div>
+
+										<div class="product-page-cart">
+											<div class="product-quantity">
+												<input id="product-quantity" type="text" value="1" readonly
+													name="product-quantity" class="form-control input-sm">
+											</div>
+											<button class="btn btn-primary" type="submit">Add to
+												cart</button>
+											<a href="#" class="btn btn-default">More details</a>
+										</div>
+									</div>
+
+
+									<div class="sticker sticker-sale"></div>
+								</div>
+							</div>
 						</div>
-						<div class="col-md-10 col-sm-10" align="center">
-							<p>
-								Phòng
-								<%=maLP%></p>
-						</div>
+						<!-- END fast view of a product -->
 					</div>
 					<!-- BEGIN PRODUCT LIST -->
 					<div class="row product-list" align="center">
-						<%
-							for (Phong p : phongDAO.getListAllPhong()) {
-						%>
-						<div class="col-sm-4">
-							<div class="product-item">
-								<div class="pi-img-wrapper">
-									<div>
-										<a href="#"><img src="images/img_1.jpg"
-										alt="Image placeholder"> <a
-											href="chitietphong.jsp?maPhong=<%=p.getMaPhong()%>"
-											class="btn btn-default fancybox-fast-view">View</a>
-									</div>
-								</div>
-								<h3>
-									<a href="shop-item.html"><%=p.getTenPhong()%></a>
-								</h3>
-								<h3>
-									<a href="shop-item.html"><%=p.getTrangThai()%></a>
-								</h3>
-						</div>
-						<%
-							}
-						%>
+						<!-- BEGIN fast view of a product -->
+
 					</div>
+
+
 					<!-- END PRODUCT LIST -->
-					<!-- BEGIN PAGINATOR -->
-					<div class="row">
-						<!-- 						<div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of 10 -->
-						<!-- 							total</div> -->
-						<!-- 						<div class="col-md-8 col-sm-8"> -->
-						<!-- 							<ul class="pagination pull-right"> -->
-						<!-- 								<li><a href="javascript:;">&laquo;</a></li> -->
-						<!-- 								<li><a href="javascript:;">1</a></li> -->
-						<!-- 								<li><span>2</span></li> -->
-						<!-- 								<li><a href="javascript:;">3</a></li> -->
-						<!-- 								<li><a href="javascript:;">4</a></li> -->
-						<!-- 								<li><a href="javascript:;">5</a></li> -->
-						<!-- 								<li><a href="javascript:;">&raquo;</a></li> -->
-						<!-- 							</ul> -->
-						<!-- 						</div> -->
-					</div>
-					<!-- END PAGINATOR -->
+					<!-- 					BEGIN PAGINATOR -->
+					<!-- 					<div class="row"> -->
+					<!-- 						<div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of 10 -->
+					<!-- 							total</div> -->
+					<!-- 						<div class="col-md-8 col-sm-8"> -->
+					<!-- 							<ul class="pagination pull-right"> -->
+					<!-- 								<li><a href="javascript:;">&laquo;</a></li> -->
+					<!-- 								<li><a href="javascript:;">1</a></li> -->
+					<!-- 								<li><span>2</span></li> -->
+					<!-- 								<li><a href="javascript:;">3</a></li> -->
+					<!-- 								<li><a href="javascript:;">4</a></li> -->
+					<!-- 								<li><a href="javascript:;">5</a></li> -->
+					<!-- 								<li><a href="javascript:;">&raquo;</a></li> -->
+					<!-- 							</ul> -->
+					<!-- 						</div> -->
+					<!-- 					</div> -->
+					<!-- 					END PAGINATOR -->
 				</div>
+
 				<!-- END CONTENT -->
 			</div>
 			<!-- END SIDEBAR & CONTENT -->
@@ -352,6 +331,18 @@
 
 
 	<!-- BEGIN STEPS -->
+	<div class="steps-block steps-block-red">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 steps-block-col">
+					<div>
+						<p style="color: white;">Phát triển dự án: Sinh viên Mai Văn
+							Công & GVHD</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- Load javascripts at bottom, this will reduce page load time -->
 	<!-- BEGIN CORE PLUGINS(REQUIRED FOR ALL PAGES) -->
 	<!--[if lt IE 9]>

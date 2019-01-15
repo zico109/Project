@@ -192,10 +192,10 @@
 	<!-- Body BEGIN -->
 <body class="ecommerce">
 
-	<%
+<%
 		LoaiPhongDAO loaiPhongDAO = new LoaiPhongDAO();
 		PhongDAO phongDAO = new PhongDAO();
-		String maPhong = "";
+		String maPhong = "";		
 		if (request.getParameter("phong") != null) {
 			maPhong = request.getParameter("phong");
 		}
@@ -203,11 +203,6 @@
 		if (request.getParameter("loaiphong") != null) {
 			maLP = request.getParameter("loaiphong");
 		}
-		// 		GioHang cart = (GioHang) session.getAttribute("cart");
-		// 		if (cart == null) {
-		// 			cart = new GioHang();
-		// 			session.setAttribute("cart", cart);
-		// 		}
 	%>
 	<!-- BEGIN HEADER -->
 	<div class="header">
@@ -216,12 +211,17 @@
 				href="javascript:void(0);" class="mobi-toggler"><i
 				class="fa fa-bars"></i></a>
 
+
 			<!-- BEGIN NAVIGATION -->
 			<div class="header-navigation">
 
 				<ul>
 					<li><a href="home.jsp">Trang chủ</a></li>
-
+					<li><a href="shop-item.html">Kids</a></li>
+					<li><a href="shop-item.html">Kids</a></li>
+					<li><a href="shop-item.html">Kids</a></li>
+					<li><a href="shop-item.html">Kids</a></li>
+					<li><a href="shop-item.html">Kids</a></li>
 
 
 					<li class="menu-search"><span class="sep"></span> <i
@@ -262,24 +262,17 @@
 			<div class="row margin-bottom-40">
 				<!-- BEGIN SIDEBAR -->
 				<div class="sidebar col-md-3 col-sm-5">
-					<ul class="list-group margin-bottom-25 sidebar-menu">
+				<ul class="list-group margin-bottom-25 sidebar-menu">
 						<li class="list-group-item clearfix"><a
-							href="rooms.jsp"><i class="fa fa-angle-right"></i>Tất
-								cả phòng</a></li>
+							href="rooms.jsp"><i
+								class="fa fa-angle-right"></i>Tất cả sản phẩm</a></li>
 					</ul>
 					<%
 						for (LoaiPhong lp : loaiPhongDAO.getListLoaiPhong()) {
 					%>
 					<ul class="list-group margin-bottom-25 sidebar-menu">
 						<li class="list-group-item clearfix"><a
-							href="caterooms.jsp?loaiphong=<%=lp.getMaLP()%>"><i
-								class="fa fa-angle-right"></i><%=lp.getTenLP()%>
-								</a></li>
-								<li class="list-group-item clearfix"><a
-							href="caterooms.jsp?loaiphong=<%=lp.getMaLP()%>"><i
-								class="fa fa-angle-right"></i><%=lp.getGiaLP()%>
-								</a></li>								
-								
+							href="rooms.jsp?loaiphong=<%=lp.getMaLP()%>"><i class="fa fa-angle-right"></i><%=lp.getTenLP()%></a></li>
 					</ul>
 					<%
 						}
@@ -292,13 +285,13 @@
 							<a href="javascript:;"><i class="fa fa-th-large"></i></a> <a
 								href="javascript:;"><i class="fa fa-th-list"></i></a>
 						</div>
-						<div class="col-md-10 col-sm-10" align="center">
+						<div class="col-md-10 col-sm-10">
 							<p>
 								Phòng
-								<%=maLP%></p>
+								<%=maLP%></p>							
 						</div>
 					</div>
-					<!-- BEGIN PRODUCT LIST -->
+
 					<div class="row product-list" align="center">
 						<%
 							for (Phong p : phongDAO.getListAllPhong()) {
@@ -309,7 +302,7 @@
 									<div>
 										<a href="#"><img src="images/img_1.jpg"
 										alt="Image placeholder"> <a
-											href="chitietphong.jsp?maPhong=<%=p.getMaPhong()%>"
+											href="chitietphong.jsp?maSP=<%=p.getMaPhong()%>"
 											class="btn btn-default fancybox-fast-view">View</a>
 									</div>
 								</div>
@@ -324,24 +317,26 @@
 							}
 						%>
 					</div>
+
+
 					<!-- END PRODUCT LIST -->
-					<!-- BEGIN PAGINATOR -->
-					<div class="row">
-						<!-- 						<div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of 10 -->
-						<!-- 							total</div> -->
-						<!-- 						<div class="col-md-8 col-sm-8"> -->
-						<!-- 							<ul class="pagination pull-right"> -->
-						<!-- 								<li><a href="javascript:;">&laquo;</a></li> -->
-						<!-- 								<li><a href="javascript:;">1</a></li> -->
-						<!-- 								<li><span>2</span></li> -->
-						<!-- 								<li><a href="javascript:;">3</a></li> -->
-						<!-- 								<li><a href="javascript:;">4</a></li> -->
-						<!-- 								<li><a href="javascript:;">5</a></li> -->
-						<!-- 								<li><a href="javascript:;">&raquo;</a></li> -->
-						<!-- 							</ul> -->
-						<!-- 						</div> -->
-					</div>
-					<!-- END PAGINATOR -->
+<!-- 					BEGIN PAGINATOR -->
+<!-- 					<div class="row"> -->
+<!-- 						<div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of 10 -->
+<!-- 							total</div> -->
+<!-- 						<div class="col-md-8 col-sm-8"> -->
+<!-- 							<ul class="pagination pull-right"> -->
+<!-- 								<li><a href="javascript:;">&laquo;</a></li> -->
+<!-- 								<li><a href="javascript:;">1</a></li> -->
+<!-- 								<li><span>2</span></li> -->
+<!-- 								<li><a href="javascript:;">3</a></li> -->
+<!-- 								<li><a href="javascript:;">4</a></li> -->
+<!-- 								<li><a href="javascript:;">5</a></li> -->
+<!-- 								<li><a href="javascript:;">&raquo;</a></li> -->
+<!-- 							</ul> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					END PAGINATOR -->
 				</div>
 				<!-- END CONTENT -->
 			</div>
@@ -349,9 +344,53 @@
 		</div>
 	</div>
 
-
+<!-- 	<!-- BEGIN BRANDS --> -->
+<!-- 	<div class="brands"> -->
+<!-- 		<div class="container"> -->
+<!-- 			<div class="owl-carousel owl-carousel6-brands"> -->
+<!-- 				<a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/canon.jpg" alt="canon" -->
+<!-- 					title="canon"></a> <a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/esprit.jpg" alt="esprit" -->
+<!-- 					title="esprit"></a> <a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a> -->
+<!-- 				<a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/next.jpg" alt="next" -->
+<!-- 					title="next"></a> <a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/puma.jpg" alt="puma" -->
+<!-- 					title="puma"></a> <a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/zara.jpg" alt="zara" -->
+<!-- 					title="zara"></a> <a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/canon.jpg" alt="canon" -->
+<!-- 					title="canon"></a> <a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/esprit.jpg" alt="esprit" -->
+<!-- 					title="esprit"></a> <a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a> -->
+<!-- 				<a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/next.jpg" alt="next" -->
+<!-- 					title="next"></a> <a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/puma.jpg" alt="puma" -->
+<!-- 					title="puma"></a> <a href="shop-product-list.html"><img -->
+<!-- 					src="content/assets/pages/img/brands/zara.jpg" alt="zara" -->
+<!-- 					title="zara"></a> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+<!-- 	<!-- END BRANDS --> -->
 
 	<!-- BEGIN STEPS -->
+	<div class="steps-block steps-block-red">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 steps-block-col">
+					<div>
+						<p style="color: white;">Phát triển dự án: Sinh viên Mai Văn
+							Công & GVHD</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- Load javascripts at bottom, this will reduce page load time -->
 	<!-- BEGIN CORE PLUGINS(REQUIRED FOR ALL PAGES) -->
 	<!--[if lt IE 9]>

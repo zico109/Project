@@ -17,6 +17,7 @@ public class Controller_XacThuc {
 	ObjectDAO<TaiKhoan> dao = new DAO_TaiKhoan();
 	String maDangNhap;
 	String matKhau;
+	String duongdantrangview="home.jsp";
 
 	public String getMaDangNhap() {
 		return maDangNhap;

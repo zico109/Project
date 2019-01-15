@@ -50,6 +50,10 @@
 		ObjectDAO dao2 = new DAO_KhachHang();
 		dao2.saveOrUpdate(kh);
 		
+		
+		
+		///loai phong
+		
 		LoaiPhong loaiphong = new LoaiPhong();
 		loaiphong.setMaLP("PNT001");
 		loaiphong.setTenLP("Phòng nam thường");
@@ -57,22 +61,123 @@
 		loaiphong.setTienNghi("wifi");
 		ObjectDAO dao3 = new DAO_LoaiPhong();
 		dao3.saveOrUpdate(loaiphong);
-
+		
+		
+		LoaiPhong loaiphong1 = new LoaiPhong();
+		loaiphong.setMaLP("PNV001");
+		loaiphong.setTenLP("Phòng nam vip");
+		loaiphong.setGiaLP(2000000);
+		loaiphong.setTienNghi("wifi, tv");
+		ObjectDAO dao4 = new DAO_LoaiPhong();
+		dao3.saveOrUpdate(loaiphong);
+		
+		LoaiPhong loaiphong2 = new LoaiPhong();
+		loaiphong.setMaLP("PNuT001");
+		loaiphong.setTenLP("Phòng nữ thường");
+		loaiphong.setGiaLP(1000000);
+		loaiphong.setTienNghi("wifi");
+		ObjectDAO dao5 = new DAO_LoaiPhong();
+		dao3.saveOrUpdate(loaiphong);
+		
+		LoaiPhong loaiphong3 = new LoaiPhong();
+		loaiphong.setMaLP("PNuV001");
+		loaiphong.setTenLP("Phòng nữ vip");
+		loaiphong.setGiaLP(2000000);
+		loaiphong.setTienNghi("wifi,tv");
+		ObjectDAO dao6 = new DAO_LoaiPhong();
+		dao3.saveOrUpdate(loaiphong);
+		
+		LoaiPhong loaiphong4 = new LoaiPhong();
+		loaiphong.setMaLP("PMT001");
+		loaiphong.setTenLP("Phòng mix thuong");
+		loaiphong.setGiaLP(1000000);
+		loaiphong.setTienNghi("wifi");
+		ObjectDAO dao7 = new DAO_LoaiPhong();
+		dao3.saveOrUpdate(loaiphong);
+		
+		LoaiPhong loaiphong5 = new LoaiPhong();
+		loaiphong.setMaLP("PMV001");
+		loaiphong.setTenLP("Phòng mix vip");
+		loaiphong.setGiaLP(2000000);
+		loaiphong.setTienNghi("wifi,tv");
+		ObjectDAO dao8 = new DAO_LoaiPhong();
+		dao3.saveOrUpdate(loaiphong);
+		
+		//phong
+		
 		Phong phong = new Phong();
-		phong.setMaPhong("P001");
+		phong.setMaPhong("PN001");
 		phong.setTenPhong("Phòng nam 1");
 		phong.setSoLuongNguoi("10 người");
 		phong.setTrangThai("còn chỗ");
 		phong.setLoaiPhong(loaiphong);
-		ObjectDAO dao4 = new DAO_Phong();
+		ObjectDAO dao9 = new DAO_Phong();
 		dao4.saveOrUpdate(phong);
+		
+		
+		Phong phong1 = new Phong();
+		phong.setMaPhong("PN002");
+		phong.setTenPhong("Phòng nam 2");
+		phong.setSoLuongNguoi("10 người");
+		phong.setTrangThai("còn chỗ");
+		phong.setLoaiPhong(loaiphong);
+		ObjectDAO dao10 = new DAO_Phong();
+		dao4.saveOrUpdate(phong);
+		
+		Phong phong2 = new Phong();
+		phong.setMaPhong("PNV001");
+		phong.setTenPhong("Phòng nam vip 1");
+		phong.setSoLuongNguoi("10 người");
+		phong.setTrangThai("còn chỗ");
+		phong.setLoaiPhong(loaiphong);
+		ObjectDAO dao11 = new DAO_Phong();
+		dao4.saveOrUpdate(phong);
+		
+		
+		Phong phong3 = new Phong();
+		phong.setMaPhong("PMV001");
+		phong.setTenPhong("Phòng mix vip 1");
+		phong.setSoLuongNguoi("10 người");
+		phong.setTrangThai("còn chỗ");
+		phong.setLoaiPhong(loaiphong);
+		ObjectDAO dao12 = new DAO_Phong();
+		dao4.saveOrUpdate(phong);
+		
+		
+		//giuong
 
 		Giuong giuong = new Giuong();
 		giuong.setMaGiuong("G001");
 		giuong.setTrangThai("Trống");
 		giuong.setPhong(phong);
-		ObjectDAO dao5 = new DAO_Giuong();
+		ObjectDAO dao14 = new DAO_Giuong();
 		dao5.saveOrUpdate(giuong); 
+		
+		
+		Giuong giuong1 = new Giuong();
+		giuong.setMaGiuong("G002");
+		giuong.setTrangThai("Trống");
+		giuong.setPhong(phong);
+		ObjectDAO dao15 = new DAO_Giuong();
+		dao5.saveOrUpdate(giuong); 
+		
+		
+		Giuong giuong2 = new Giuong();
+		giuong.setMaGiuong("G003");
+		giuong.setTrangThai("Trống");
+		giuong.setPhong(phong);
+		ObjectDAO dao16 = new DAO_Giuong();
+		dao5.saveOrUpdate(giuong); 
+		
+		
+		
+		Giuong giuong3 = new Giuong();
+		giuong.setMaGiuong("G004");
+		giuong.setTrangThai("Trống");
+		giuong.setPhong(phong);
+		ObjectDAO dao17 = new DAO_Giuong();
+		dao5.saveOrUpdate(giuong); 
+		
 
 		ObjectDAO daochucnang = new DAO_ChucNang();
 
@@ -156,6 +261,50 @@
 
 		//end quan ly tai khoan
 
+		
+		
+		//quan ly thong tin dat phong
+		
+		
+		ChucNang CN_QuanLyThongTin = new ChucNang();
+		CN_QuanLyThongTin.setMaChucNang("core_CN_QuanLyThongTin");
+		CN_QuanLyThongTin.setDuongDan("null");
+		CN_QuanLyThongTin.setHinhAnh("fa fa-filter");
+		CN_QuanLyThongTin.setTenHienThi("Quản lý thông tin");
+		CN_QuanLyThongTin.setChucNangCha(null);
+		daochucnang.saveOrUpdate(CN_QuanLyThongTin);
+		
+		
+		ChucNang CN_QuanLyThongTinDatPhong = new ChucNang();
+		CN_QuanLyThongTinDatPhong.setMaChucNang("core_CN_QuanLyThongTinDatPhong");
+		CN_QuanLyThongTinDatPhong.setDuongDan("pages/thongtindatphongs.jsp");
+		CN_QuanLyThongTinDatPhong.setHinhAnh("fa fa-users");
+		CN_QuanLyThongTinDatPhong.setTenHienThi("Quản lý thông tin đặt phòng");
+		CN_QuanLyThongTinDatPhong.setChucNangCha(CN_QuanLyThongTin);
+		daochucnang.saveOrUpdate(CN_QuanLyTaiKhoanNhanVien);
+		
+		
+		//quanlys thong tin giao phong
+		
+		ChucNang CN_QuanLyThongTinGiaoPhong = new ChucNang();
+		CN_QuanLyThongTinGiaoPhong.setMaChucNang("core_CN_QuanLyThongTinGiaoPhong");
+		CN_QuanLyThongTinGiaoPhong.setDuongDan("pages/thongtingiaophongs.jsp");
+		CN_QuanLyThongTinGiaoPhong.setHinhAnh("fa fa-users");
+		CN_QuanLyThongTinGiaoPhong.setTenHienThi("Quản lý thông tin giao phòng");
+		CN_QuanLyThongTinGiaoPhong.setChucNangCha(CN_QuanLyThongTin);
+		daochucnang.saveOrUpdate(CN_QuanLyTaiKhoanNhanVien);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		//quan ly phong
 
 		ChucNang CN_Phong_Giuong = new ChucNang();
@@ -210,6 +359,10 @@
 		chs1.add(CN_QuanLyTaiKhoan);
 		chs1.add(CN_QuanLyTaiKhoanNhanVien);
 		chs1.add(CN_QuanLyTaiKhoanKhachHang);
+		
+		chs1.add(CN_QuanLyThongTin);
+		chs1.add(CN_QuanLyThongTinDatPhong);
+		chs1.add(CN_QuanLyThongTinGiaoPhong);
 
 		chs1.add(CN_Phong_Giuong);
 		chs1.add(CN_QuanLyPhong);
@@ -225,7 +378,25 @@
 		nhomPhanQuyennv.setMaNhomPhanQuyen("nhanvien");
 		nhomPhanQuyennv.setTenNhomPhanQuyen("Nhân viên");
 		Set<ChucNang> chs2 = new HashSet<ChucNang>();
+		
+		
 
+		chs2.add(CN_QuanLyThongTinCoBan);
+		chs2.add(CN_QuanLyThongTinKhachHang);
+		chs2.add(CN_QuanLyThongTinNhanVien);
+
+		chs2.add(CN_QuanLyTaiKhoan);
+		chs2.add(CN_QuanLyTaiKhoanNhanVien);
+		chs2.add(CN_QuanLyTaiKhoanKhachHang);
+		
+		chs2.add(CN_QuanLyThongTin);
+		chs2.add(CN_QuanLyThongTinDatPhong);
+		chs2.add(CN_QuanLyThongTinGiaoPhong);
+
+		chs2.add(CN_Phong_Giuong);
+		chs2.add(CN_QuanLyPhong);
+		chs2.add(CN_QuanLyGiuong);
+		chs2.add(CN_QuanLyLoaiPhong);
 		nhomPhanQuyennv.setChucNangs(chs2);
 		ObjectDAO daonpqnv = new DAO_NhomPhanQuyen();
 		daonpqnv.saveOrUpdate(nhomPhanQuyennv);
@@ -265,6 +436,24 @@
 		tknv.setNhomPhanQuyen(nhomPhanQuyennv);
 		ObjectDAO daonv = new DAO_TaiKhoan();
 		daonv.saveOrUpdate(tknv);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		// // // tk thanh vien		
 		//	 		TaiKhoanThanhVien tktv = new TaiKhoanThanhVien();
 		//	 		tktv.setMaDangNhap(tv.getEmail());

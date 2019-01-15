@@ -8,7 +8,7 @@
 <%
 	String tenLop = "ChucNang";
 	String tenTrang = "Quản lý Chức Năng";
-	String trangDanhSach = "index.jsp?p=chucnangs.jsp";
+	String trangDanhSach = "index.jsp?p=pages/chucnangs.jsp";
 	String[] tk_value = { "maChucNang", "tenHienThi", "duongDan", "chucNangCha" };
 	String[] tk_show = { "Mã chức năng", "Tên hiển thị", "Đường dẫn", "Chức năng cha" };
 %>

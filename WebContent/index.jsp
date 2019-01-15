@@ -96,6 +96,12 @@
 					UTC2 Smart 1.0
 				</span>
 			</a>
+			<a class="navbar-brand" href="home.jsp" style="color: white"> 
+				&nbsp; 
+				<span style="display: inline-block;" >
+					Trang chủ
+				</span>
+			</a>
 		</div>
 		<div id="navbar" class="collapse navbar-collapse"
 			style="background: url('content/images/bgTH2.png')'">
@@ -145,7 +151,7 @@
 	</div>
 	<div class="footer">
 		<div class="container">
-			<p class="text-muted">Sinh viên thực hiện: Ngô Cao Kỳ</p>
+			<p class="text-muted">Sinh viên thực hiện: Đào Nhật Bình</p>
 		</div>
 	</div>
 	<!-- /#page-wrapper -->

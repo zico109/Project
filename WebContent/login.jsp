@@ -69,6 +69,7 @@
 							<img src="content/images/logo.png" width="50px" height="50px" /><br />
 							ĐỒ ÁN TỐT NGHIỆP <br /> Hệ thống quản lý hostel và đăng ký trực tuyến
 						</p>
+						 <li class="nav-item"><a href="home.jsp" class="nav-link">Trang chủ</a></li>
 					</div>
 					<div class="panel-body">
 						<form role="form" action="dangNhap.action" method="post">

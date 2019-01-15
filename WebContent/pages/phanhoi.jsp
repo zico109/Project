@@ -1,3 +1,4 @@
+<%@page import="core.modelDAO.DAO_KhachHang"%>
 <%@page import="java.util.Date"%>
 <%@page import="core.utils.Util_Date"%>
 <%@page import="core.modelDAO.DAO_PhanHoi"%>
@@ -63,31 +64,28 @@
 										 readonly required="required">
 								</div>
 								<div class="form-group">
-									<%
-										ObjectDAO objdao_TaiKhoan = new DAO_TaiKhoanKhachHang();
-										String maDangNhap = session.getAttribute("maDangNhap").toString();
-										ArrayList<DAO_TaiKhoanKhachHang> listTaiKhoan = objdao_TaiKhoan.listByColumns("maDangNhap", maDangNhap);
-										if (listTaiKhoan.size() > 0) {
-											DAO_TaiKhoanKhachHang taiKhoan = listTaiKhoan.get(0);
-											KhachHang DAO_TaiKhoanKhachHang = taiKhoan.getKhachHang();
-									%>
-									<label>Mã sinh viên <span class="text-danger">(*)</span></label>
-									<input class="form-control" name="maKh" readonly
-										value="<%=obj != null && obj.getKhachHang() != null ? obj.getKhachHang().getMaKH()
-						: KhachHang.getmaKH()%> "
-										required="required">
-
-									<%
-										} else {
-									%>
-									<label>Mã sinh viên <span class="text-danger">(*)</span></label>
-									<input class="form-control" name="maKh" readonly
-										value="<%=obj != null && obj.getKhachHang() != null ? obj.getKhachHang().getMaKH()
-						: KhachHang.getmaKH()%> "
-										required="required">
-									<%
-										}
-									%>
+									<label>Khách hàng</label> <select class="form-control"
+										name="maKH" <%=(modeView ? " disabled " : "")%>>
+										<option></option>
+										<%
+											ObjectDAO dao_khachhang = new DAO_KhachHang();
+											ArrayList<KhachHang> listKhachHang = dao_khachhang.listAll();
+											for (int i = 0; i < listKhachHang.size(); i++) {
+												KhachHang kh = listKhachHang.get(i);
+												if (obj != null && obj.getKhachHang() != null && obj.getKhachHang().getMaKH().equals(kh.maKH)) {
+										%>
+										<option value="<%=kh.maKH%>" selected="selected"><%=kh.maKH%></option>
+										<%
+											} else {
+										%>
+										<option value="<%=kh.maKH%>"><%=kh.maKH%></option>
+										<%
+											}
+										%>
+										<%
+											}
+										%>
+									</select>
 								</div>
 								<div class="form-group">
 									<label>Ngày phản hồi <span class="text-danger">(*)</span></label>
@@ -112,10 +110,14 @@
 						</div>
 					</div>
 				</div>
+				
+				
+				
 				<div class="panel-footer" style="text-align: left;">
 					<div class="col-md-5"></div>
 					<div class="col-md-7">
 						<%@ include file="../../hostelPartial/processform.jsp"%>
+
 					</div>
 				</div>
 

@@ -49,6 +49,7 @@
 			-
 			<%=tenTrangChiTiet%>
 		</h4>
+		 <li class="nav-item"><a href="home.jsp" class="nav-link">Trang Chủ</a></li>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
@@ -82,7 +83,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="panel-body">
+				<div class="panel-body" >
 					<div class="row" style="padding: 10px">
 						<div class="row">
 							<div class="col-lg-6">
@@ -98,6 +99,8 @@
 										value="<%=(obj != null ? obj.getMatKhau() : "")%>"
 										>
 								</div>
+								
+								
 								<div class="form-group">
 									<label>Họ và tên</label> <input class="form-control"
 										name="hoVaTen"
@@ -133,17 +136,19 @@
 							</div>
 							<div class="col-lg-6">
 
-								<div class="form-group">
-								<label style="display:block"></label>
-								<select style="display: block" class="form-control"
-										name="trangThaiHoatDong">
-										<input value="<%=obj != null && obj.isTrangThaiHoatDong() == true ? "selected" : ""%>"
+<!-- 								<div class="form-group"> -->
+<!-- 								<label style="display:block"></label> -->
+<!-- 								<select style="display: block" class="form-control" -->
+<!-- 										name="trangThaiHoatDong"> -->
+<%-- 										<input value="<%=obj != null && obj.isTrangThaiHoatDong() == true ? "selected" : ""%>" --%>
 										
-										readonly required="required">
+<!-- 										readonly required="required"> -->
 											
 											
-											</select>
-								</div>
+<!-- 											</select> -->
+<!-- 								</div> -->
+								
+								
 								<div class="form-group">
 									<label>Email</label> <input class="form-control" name="email"
 										value="<%=(obj != null ? obj.getEmail() : "")%>"
