@@ -281,7 +281,7 @@
 		CN_QuanLyThongTinDatPhong.setHinhAnh("fa fa-users");
 		CN_QuanLyThongTinDatPhong.setTenHienThi("Quản lý thông tin đặt phòng");
 		CN_QuanLyThongTinDatPhong.setChucNangCha(CN_QuanLyThongTin);
-		daochucnang.saveOrUpdate(CN_QuanLyTaiKhoanNhanVien);
+		daochucnang.saveOrUpdate(CN_QuanLyThongTinDatPhong);
 		
 		
 		//quanlys thong tin giao phong
@@ -292,11 +292,17 @@
 		CN_QuanLyThongTinGiaoPhong.setHinhAnh("fa fa-users");
 		CN_QuanLyThongTinGiaoPhong.setTenHienThi("Quản lý thông tin giao phòng");
 		CN_QuanLyThongTinGiaoPhong.setChucNangCha(CN_QuanLyThongTin);
-		daochucnang.saveOrUpdate(CN_QuanLyTaiKhoanNhanVien);
+		daochucnang.saveOrUpdate(CN_QuanLyThongTinGiaoPhong);
 		
 		
 		
-		
+		ChucNang CN_QuanLyTrangThaiPhong = new ChucNang();
+		CN_QuanLyTrangThaiPhong.setMaChucNang("core_CN_QuanLyTrangThaiPhong");
+		CN_QuanLyTrangThaiPhong.setDuongDan("pages/trangthaiphongs.jsp");
+		CN_QuanLyTrangThaiPhong.setHinhAnh("fa fa-users");
+		CN_QuanLyTrangThaiPhong.setTenHienThi("Quản lý trạng thái phòng");
+		CN_QuanLyTrangThaiPhong.setChucNangCha(CN_QuanLyThongTin);
+		daochucnang.saveOrUpdate(CN_QuanLyTrangThaiPhong);
 		
 		
 		
@@ -363,11 +369,15 @@
 		chs1.add(CN_QuanLyThongTin);
 		chs1.add(CN_QuanLyThongTinDatPhong);
 		chs1.add(CN_QuanLyThongTinGiaoPhong);
+		chs1.add(CN_QuanLyTrangThaiPhong);
 
 		chs1.add(CN_Phong_Giuong);
 		chs1.add(CN_QuanLyPhong);
 		chs1.add(CN_QuanLyGiuong);
 		chs1.add(CN_QuanLyLoaiPhong);
+		
+		
+		
 		nhomPhanQuyenadmin.setChucNangs(chs1);
 		ObjectDAO daonpqad = new DAO_NhomPhanQuyen();
 		daonpqad.saveOrUpdate(nhomPhanQuyenadmin);
@@ -401,23 +411,7 @@
 		ObjectDAO daonpqnv = new DAO_NhomPhanQuyen();
 		daonpqnv.saveOrUpdate(nhomPhanQuyennv);
 
-		// 	// thanh vien
-
-		// 			NhomPhanQuyen nhomPhanQuyentv = new NhomPhanQuyen();
-		// 			nhomPhanQuyentv.setMaNhomPhanQuyen("thanhvien");
-		// 			nhomPhanQuyentv.setTenNhomPhanQuyen("Thành viên");
-		// 			Set<ChucNang> chs3 = new HashSet<ChucNang>();
-
-		// 			chs3.add(CN_QuanLyThanhVien);
-		// 			chs3.add(CN_QuanLyPhieuGiamSatTV);
-
-		// 			chs3.add(CN_QuanLyHistory);
-		// 			chs3.add(CN_QuanLyLichSuTap);
-
-		// 			nhomPhanQuyentv.setChucNangs(chs3);
-		// 			ObjectDAO daonpqtv = new DAO_NhomPhanQuyen();
-		// 			daonpqtv.saveOrUpdate(nhomPhanQuyentv);
-
+	
 		// // tk admin		
 		TaiKhoanNhanVien tkadmin = new TaiKhoanNhanVien();
 		tkadmin.setMaDangNhap(admin.getEmail());
@@ -453,18 +447,7 @@
 		
 		
 		
-		
-		// // // tk thanh vien		
-		//	 		TaiKhoanThanhVien tktv = new TaiKhoanThanhVien();
-		//	 		tktv.setMaDangNhap(tv.getEmail());
-		//	 		tktv.setEmail(tv.getEmail());
-		//	 		tktv.setMatKhau(Util_MD5.md5("123456"));
-		//	 		tktv.setThanhVien(tv);
-		//	 		tktv.setNhomPhanQuyen(nhomPhanQuyentv);
-		//	 		ObjectDAO daotv = new DAO_TaiKhoan();
-		//	 		daotv.saveOrUpdate(tktv);
 
-		//end
 	%>
 
 </body>

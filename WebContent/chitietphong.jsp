@@ -204,7 +204,7 @@
 	<!-- BEGIN HEADER -->
 	<div class="header">
 		<div class="container">
-			<a class="site-logo" href="rooms.jsp">GYM Shop</a> <a
+			<a class="site-logo" href="rooms.jsp">Rooms</a> <a
 				href="javascript:void(0);" class="mobi-toggler"><i
 				class="fa fa-bars"></i></a>
 
@@ -215,19 +215,6 @@
 				<ul>
 					<li><a href="home.jsp">Trang chủ</a></li>
 
-
-					<li class="menu-search"><span class="sep"></span> <i
-						class="fa fa-search search-btn"></i>
-						<div class="search-box">
-							<form action="#">
-								<div class="input-group">
-									<input type="text" placeholder="Search" class="form-control">
-									<span class="input-group-btn">
-										<button class="btn btn-primary" type="submit">Search</button>
-									</span>
-								</div>
-							</form>
-						</div></li>
 					<!-- END TOP SEARCH -->
 				</ul>
 
@@ -241,9 +228,8 @@
 		<div class="container">
 			<div class="container-inner">
 				<h1>
-					<span>MEN</span> CATEGORY
+					<span>Rooms</span> CATEGORY
 				</h1>
-				<em>Over 4000 Items are available here</em>
 			</div>
 		</div>
 	</div>

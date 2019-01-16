@@ -74,7 +74,7 @@
 								<!-- 	</div> -->
 
 								<!-- 	<div class="col-md-4" style="padding: 1px"> -->
-								<button type="submit" class="btn btn-default">
+								<button type="submit" class="btn btn-default" href="login.jsp">
 									<img src="content/images/save-32.png" width="16px"
 										height="16px" /> &nbsp; Đăng ký
 								</button>

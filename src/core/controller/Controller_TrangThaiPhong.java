@@ -21,8 +21,8 @@ public class Controller_TrangThaiPhong extends TrangThaiPhong implements ZEContr
 
 	String timKiemTheo;
 	String tuKhoa;
-	String duongDanTrang = "pages/trangThaiPhongs.jsp";
-	String duongDanTrangView = "pages/trangThaiPhong.jsp";
+	String duongDanTrang = "pages/trangthaiphongs.jsp";
+	String duongDanTrangView = "pages/trangthaiphong.jsp";
 	String tenCotTimDoiTuong = "maTrangThaiPhong";
 	String maObj;
 	String maPhong;

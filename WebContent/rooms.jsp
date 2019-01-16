@@ -263,9 +263,8 @@
 				<!-- BEGIN SIDEBAR -->
 				<div class="sidebar col-md-3 col-sm-5">
 					<ul class="list-group margin-bottom-25 sidebar-menu">
-						<li class="list-group-item clearfix"><a
-							href="rooms.jsp"><i class="fa fa-angle-right"></i>Tất
-								cả phòng</a></li>
+						<li class="list-group-item clearfix"><a href="rooms.jsp"><i
+								class="fa fa-angle-right"></i>Tất cả phòng</a></li>
 					</ul>
 					<%
 						for (LoaiPhong lp : loaiPhongDAO.getListLoaiPhong()) {
@@ -273,13 +272,11 @@
 					<ul class="list-group margin-bottom-25 sidebar-menu">
 						<li class="list-group-item clearfix"><a
 							href="caterooms.jsp?loaiphong=<%=lp.getMaLP()%>"><i
-								class="fa fa-angle-right"></i><%=lp.getTenLP()%>
-								</a></li>
-								<li class="list-group-item clearfix"><a
+								class="fa fa-angle-right"></i><%=lp.getTenLP()%> </a></li>
+						<li class="list-group-item clearfix"><a
 							href="caterooms.jsp?loaiphong=<%=lp.getMaLP()%>"><i
-								class="fa fa-angle-right"></i><%=lp.getGiaLP()%>
-								</a></li>								
-								
+								class="fa fa-angle-right"></i><%=lp.getGiaLP()%> </a></li>
+
 					</ul>
 					<%
 						}
@@ -308,17 +305,20 @@
 								<div class="pi-img-wrapper">
 									<div>
 										<a href="#"><img src="images/img_1.jpg"
-										alt="Image placeholder"> <a
+											alt="Image placeholder"> <a
 											href="chitietphong.jsp?maPhong=<%=p.getMaPhong()%>"
 											class="btn btn-default fancybox-fast-view">View</a>
 									</div>
 								</div>
+
 								<h3>
 									<a href="shop-item.html"><%=p.getTenPhong()%></a>
 								</h3>
 								<h3>
 									<a href="shop-item.html"><%=p.getTrangThai()%></a>
 								</h3>
+							</div>
+
 						</div>
 						<%
 							}

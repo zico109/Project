@@ -207,40 +207,12 @@
 	<!-- BEGIN HEADER -->
 	<div class="header">
 		<div class="container">
-			<a class="site-logo" href="rooms.jsp">GYM Shop</a> <a
+			<a class="site-logo" href="rooms.jsp">Room</a> <a
 				href="javascript:void(0);" class="mobi-toggler"><i
 				class="fa fa-bars"></i></a>
 
 
-			<!-- BEGIN NAVIGATION -->
-			<div class="header-navigation">
-
-				<ul>
-					<li><a href="home.jsp">Trang chủ</a></li>
-					<li><a href="shop-item.html">Kids</a></li>
-					<li><a href="shop-item.html">Kids</a></li>
-					<li><a href="shop-item.html">Kids</a></li>
-					<li><a href="shop-item.html">Kids</a></li>
-					<li><a href="shop-item.html">Kids</a></li>
-
-
-					<li class="menu-search"><span class="sep"></span> <i
-						class="fa fa-search search-btn"></i>
-						<div class="search-box">
-							<form action="#">
-								<div class="input-group">
-									<input type="text" placeholder="Search" class="form-control">
-									<span class="input-group-btn">
-										<button class="btn btn-primary" type="submit">Search</button>
-									</span>
-								</div>
-							</form>
-						</div></li>
-					<!-- END TOP SEARCH -->
-				</ul>
-
-			</div>
-			<!-- END NAVIGATION -->
+				
 		</div>
 	</div>
 	<!-- Header END -->
@@ -249,9 +221,8 @@
 		<div class="container">
 			<div class="container-inner">
 				<h1>
-					<span>MEN</span> CATEGORY
+					<span>ROOMS</span> CATEGORY
 				</h1>
-				<em>Over 4000 Items are available here</em>
 			</div>
 		</div>
 	</div>
@@ -265,7 +236,7 @@
 				<ul class="list-group margin-bottom-25 sidebar-menu">
 						<li class="list-group-item clearfix"><a
 							href="rooms.jsp"><i
-								class="fa fa-angle-right"></i>Tất cả sản phẩm</a></li>
+								class="fa fa-angle-right"></i>Tất cả loại phòng</a></li>
 					</ul>
 					<%
 						for (LoaiPhong lp : loaiPhongDAO.getListLoaiPhong()) {
@@ -287,8 +258,8 @@
 						</div>
 						<div class="col-md-10 col-sm-10">
 							<p>
-								Phòng
-								<%=maLP%></p>							
+								Loại Phòng</p>
+<%-- 								<%=maLP%>							 --%>
 						</div>
 					</div>
 
@@ -301,17 +272,20 @@
 								<div class="pi-img-wrapper">
 									<div>
 										<a href="#"><img src="images/img_1.jpg"
-										alt="Image placeholder"> <a
-											href="chitietphong.jsp?maSP=<%=p.getMaPhong()%>"
+											alt="Image placeholder"> <a
+											href="chitietphong.jsp?maPhong=<%=p.getMaPhong()%>"
 											class="btn btn-default fancybox-fast-view">View</a>
 									</div>
 								</div>
+
 								<h3>
 									<a href="shop-item.html"><%=p.getTenPhong()%></a>
 								</h3>
 								<h3>
 									<a href="shop-item.html"><%=p.getTrangThai()%></a>
 								</h3>
+							</div>
+
 						</div>
 						<%
 							}
@@ -379,18 +353,7 @@
 <!-- 	<!-- END BRANDS --> -->
 
 	<!-- BEGIN STEPS -->
-	<div class="steps-block steps-block-red">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-4 steps-block-col">
-					<div>
-						<p style="color: white;">Phát triển dự án: Sinh viên Mai Văn
-							Công & GVHD</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
 	<!-- Load javascripts at bottom, this will reduce page load time -->
 	<!-- BEGIN CORE PLUGINS(REQUIRED FOR ALL PAGES) -->
 	<!--[if lt IE 9]>

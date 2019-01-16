@@ -10,8 +10,10 @@ import javax.servlet.http.HttpSession;
 import org.apache.struts2.ServletActionContext;
 
 import core.dao.ObjectDAO;
+import core.model.KhachHang;
 import core.model.NhomPhanQuyen;
 import core.model.TaiKhoanKhachHang;
+import core.modelDAO.DAO_KhachHang;
 import core.modelDAO.DAO_NhomPhanQuyen;
 import core.modelDAO.DAO_TaiKhoanKhachHang;
 import core.utils.Util_MD5;
@@ -25,9 +27,9 @@ public class Controller_TaiKhoanKhachHang extends TaiKhoanKhachHang implements Z
 	String duongDanTrang = "pages/taikhoankhachhangs.jsp";
 	String duongDanTrangView = "pages/taikhoankhachhang.jsp";
 	String duongDanTrangViewDK = "pages/login.jsp";
-	String tenCotTimDoiTuong = "maKhachHang";
+	String tenCotTimDoiTuong = "maKH";
 	String maObj;
-	String maKhachHang;
+	String maKH;
 	String s_ngayTao;
 	String maNhomPhanQuyen;
 	String matKhauHienTai;
@@ -82,15 +84,41 @@ public class Controller_TaiKhoanKhachHang extends TaiKhoanKhachHang implements Z
 	/**
 	 * @return the maKhachHang
 	 */
-	public String getMaKhachHang() {
-		return maKhachHang;
+
+	/**
+	 * @return the maKH
+	 */
+	
+	
+	/**
+	 * @return the maKhachHang
+	 */
+	public String getMaKH() {
+		return maKH;
 	}
 	/**
 	 * @param maKhachHang the maKhachHang to set
 	 */
-	public void setMaKhachHang(String maKhachHang) {
-		this.maKhachHang = maKhachHang;
+	public void setMaKH(String maKH) {
+		this.maKH = maKH;
 	}
+	
+	public KhachHang getKhachHang(){
+		ObjectDAO dao_khachHang = new DAO_KhachHang();
+		ArrayList<KhachHang> list = dao_khachHang.listByColumns("maKH", getMaKH());
+		if(list.size()>0)
+			return list.get(0);
+		else
+			return null;
+		
+	}
+	/**
+	 * @param maKH the maKH to set
+	 */
+
+	/**
+	 * @param maKhachHang the maKhachHang to set
+	 */
 	/**
 	 * @return the s_ngayTao
 	 */
@@ -103,6 +131,7 @@ public class Controller_TaiKhoanKhachHang extends TaiKhoanKhachHang implements Z
 	public void setS_ngayTao(String s_ngayTao) {
 		this.s_ngayTao = s_ngayTao;
 	}
+	
 	/**
 	 * @return the maNhomPhanQuyen
 	 */
@@ -334,14 +363,14 @@ public class Controller_TaiKhoanKhachHang extends TaiKhoanKhachHang implements Z
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpSession session = request.getSession();
 		String maDangNhap = session.getAttribute("maDangNhap").toString();
-		ObjectDAO<TaiKhoanKhachHang> dao_TaiKhoanSinhVien = new DAO_TaiKhoanKhachHang();
-		ArrayList<TaiKhoanKhachHang> list_TaiKhoanSinhVien = dao_TaiKhoanSinhVien.listByColumns("maDangNhap",
+		ObjectDAO<TaiKhoanKhachHang> dao_TaiKhoanKhachHang = new DAO_TaiKhoanKhachHang();
+		ArrayList<TaiKhoanKhachHang> list_TaiKhoanKhachHang = dao_TaiKhoanKhachHang.listByColumns("maDangNhap",
 				maDangNhap);
-		TaiKhoanKhachHang taiKhoanSinhVien = list_TaiKhoanSinhVien.get(0);
-		String matKhauHienTai = taiKhoanSinhVien.getMatKhau();
+		TaiKhoanKhachHang taiKhoanKhachHang = list_TaiKhoanKhachHang.get(0);
+		String matKhauHienTai = taiKhoanKhachHang.getMatKhau();
 		if (matKhauHienTai.equals(Util_MD5.md5(getMatKhauHienTai()))) {
-			taiKhoanSinhVien.setMatKhau(Util_MD5.md5(getMatKhau()));
-			if (dao.saveOrUpdate(taiKhoanSinhVien)) {
+			taiKhoanKhachHang.setMatKhau(Util_MD5.md5(getMatKhau()));
+			if (dao.saveOrUpdate(taiKhoanKhachHang)) {
 				session.setAttribute("msg", "Đổi mật khẩu thành công");
 				return "SUCCESS";
 			}

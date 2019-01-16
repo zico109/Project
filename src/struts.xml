@@ -630,7 +630,7 @@
 		
 		
 		
-		<!-- Xử lý THONG TIN DAT PHONG -->
+		<!-- Xử lý THONG TIN hoadon -->
 		<!-- Tìm kiếm hoadon -->
 		<action name="timKiemThongTinGiaoPhong" class="core.controller.Controller_ThongTinGiaoPhong"
 			method="search">
@@ -638,21 +638,21 @@
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
-		<!-- Tải lại chức năng -->
+		<!-- Tải lại hoadon-->
 		<action name="taiLaiThongTinGiaoPhong" class="core.controller.Controller_ThongTinGiaoPhong"
 			method="refresh">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
-		<!-- Thêm mới chức năng -->
+		<!-- Thêm mới hoadon -->
 		<action name="themMoiThongTinGiaoPhong" class="core.controller.Controller_ThongTinGiaoPhong"
 			method="addNew">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
-		<!-- Lưu chức năng -->
+		<!-- Lưu hoadon -->
 		<action name="luuDuLieuThongTinGiaoPhong" class="core.controller.Controller_ThongTinGiaoPhong"
 			method="saveOrUpdate">
 			<result name="SUCCESS">/index.jsp</result>
@@ -679,8 +679,61 @@
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
-		<!-- kết thúc xử lý chức năng -->
+		<!-- kết thúc xử lý  -->
 		
+		
+		
+		
+		<!-- Xử lý THONG TIN trangthaiphong -->
+		<!-- Tìm kiếm trangthaiphong -->
+		<action name="timKiemTrangThaiPhong" class="core.controller.Controller_TrangThaiPhong"
+			method="search">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Tải lại trangthaiphong-->
+		<action name="taiLaiTrangThaiPhong" class="core.controller.Controller_TrangThaiPhong"
+			method="refresh">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Thêm mới trangthaiphong -->
+		<action name="themMoiTrangThaiPhong" class="core.controller.Controller_TrangThaiPhong"
+			method="addNew">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Lưu trangthaiphong -->
+		<action name="luuDuLieuTrangThaiPhong" class="core.controller.Controller_TrangThaiPhong"
+			method="saveOrUpdate">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xem chi tiet -->
+		<action name="xemChiTietTrangThaiPhong" class="core.controller.Controller_TrangThaiPhong"
+			method="viewDetail">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xem chi tiet va chinh sua -->
+		<action name="xemChiTietVaChinhSuaTrangThaiPhong" class="core.controller.Controller_TrangThaiPhong"
+			method="viewDetailAndEdit">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+
+		<!-- Xoa chức năng -->
+		<action name="deleteTrangThaiPhong" class="core.controller.Controller_TrangThaiPhong"
+			method="delete">
+			<result name="SUCCESS">/index.jsp</result>
+			<result name="FAIL">/index.jsp</result>
+		</action>
+		<!-- kết thúc xử lý  -->
 		
 		
 

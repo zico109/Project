@@ -313,13 +313,13 @@ public class Controller_TaiKhoanNhanVien extends TaiKhoanNhanVien implements ZEC
 		HttpSession session = request.getSession();
 		String maDangNhap = session.getAttribute("maDangNhap").toString();
 		ObjectDAO<TaiKhoanNhanVien> dao_TaiKhoanNhanVien = new DAO_TaiKhoanNhanVien();
-		ArrayList<TaiKhoanNhanVien> list_TaiKhoanSinhVien = dao_TaiKhoanNhanVien.listByColumns("maDangNhap",
+		ArrayList<TaiKhoanNhanVien> list_TaiKhoanNhanVien = dao_TaiKhoanNhanVien.listByColumns("maDangNhap",
 				maDangNhap);
-		TaiKhoanNhanVien taiKhoanSinhVien = list_TaiKhoanSinhVien.get(0);
-		String matKhauHienTai = taiKhoanSinhVien.getMatKhau();
+		TaiKhoanNhanVien taiKhoanNhanVien = list_TaiKhoanNhanVien.get(0);
+		String matKhauHienTai = taiKhoanNhanVien.getMatKhau();
 		if (matKhauHienTai.equals(Util_MD5.md5(getMatKhauHienTai()))) {
-			taiKhoanSinhVien.setMatKhau(Util_MD5.md5(getMatKhau()));
-			if (dao.saveOrUpdate(taiKhoanSinhVien)) {
+			taiKhoanNhanVien.setMatKhau(Util_MD5.md5(getMatKhau()));
+			if (dao.saveOrUpdate(taiKhoanNhanVien)) {
 				session.setAttribute("msg", "Đổi mật khẩu thành công");
 				return "SUCCESS";
 			}
