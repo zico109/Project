@@ -35,6 +35,11 @@
 <link rel="stylesheet" href="css/icomoon.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
+<%
+	String taiKhoanDangNhap = request.getSession().getAttribute("maDangNhap") + "";
+	taiKhoanDangNhap = taiKhoanDangNhap.equals("null") ? "" : taiKhoanDangNhap;
+	System.out.println(taiKhoanDangNhap);
+%>
 <body>
 
 	<nav
@@ -56,10 +61,20 @@
 					<li class="nav-item"><a href="services.jsp" class="nav-link">Services</a></li>
 					<li class="nav-item"><a href="about.jsp" class="nav-link">About
 							Us</a></li>
-					<li class="nav-item"><a href="blog.jsp" class="nav-link">Blog</a></li>
+					<li class="nav-item"><a href="index.jsp" class="nav-link">Account</a></li>
 					<li class="nav-item"><a href="dangky.jsp" class="nav-link">Register</a></li>
-					<li class="nav-item"><a href="login.jsp" class="nav-link">Login</a></li>
-
+					<li class="nav-item">
+						<%
+							if (!taiKhoanDangNhap.equals("")) {
+						%><a href="dangXuat.action"
+						class="nav-link"><%=taiKhoanDangNhap%></a> <%
+ 	} else {
+ %><a
+						href="login.jsp" class="nav-link">Login</a>
+						<%
+							}
+						%>>
+					</li>
 				</ul>
 			</div>
 		</div>

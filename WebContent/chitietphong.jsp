@@ -10,7 +10,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <head>
-<title>Bright Hotel - Free Bootstrap 4 Template by Colorlib</title>
+<title>Smart Hostel - Free Bootstrap 4 Template by Colorlib</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,7 +36,7 @@
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="index.html">BrightHotel</a>
+			<a class="navbar-brand" href="index.html">Smart Hostel</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#ftco-nav" aria-controls="ftco-nav"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -336,8 +336,7 @@
 			<div class="row">
 				<div class="col-md-4 steps-block-col">
 					<div>
-						<p style="color: white;">Phát triển dự án: Sinh viên Mai Văn
-							Công & GVHD</p>
+						<p style="color: white;">Phát triển dự án: Sinh viên  & GVHD</p>
 					</div>
 				</div>
 			</div>
