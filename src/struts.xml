@@ -30,7 +30,7 @@
 		<!-- Dang Ký -->
 		<action name="LuuDuLieuKhachHang" class="core.controller.Controller_TaiKhoanKhachHang"
 			method="saveOrUpdateDK">
-			<result name="SUCCESS">/home.jsp</result>
+			<result name="SUCCESS">/login.jsp</result>
 			<result name="FAIL">/dangky.jsp</result>
 		</action>
 
@@ -523,49 +523,49 @@
 		
 		<!-- Xử lý HOA DON -->
 		<!-- Tìm kiếm hoadon -->
-		<action name="timKiemHoaDon" class="core.controller.Controller_HoaDonDatPhong"
+		<action name="timKiemHoaDonDatPhong" class="core.controller.Controller_HoaDonDatPhong"
 			method="search">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Tải lại chức năng -->
-		<action name="taiLaiHoaDon" class="core.controller.Controller_HoaDonDatPhong"
+		<action name="taiLaiHoaDonDatPhong" class="core.controller.Controller_HoaDonDatPhong"
 			method="refresh">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Thêm mới chức năng -->
-		<action name="themMoiHoaDon" class="core.controller.Controller_HoaDonDatPhong"
+		<action name="themMoiHoaDonDatPhong" class="core.controller.Controller_HoaDonDatPhong"
 			method="addNew">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Lưu chức năng -->
-		<action name="luuDuLieuHoaDon" class="core.controller.Controller_HoaDonDatPhong"
+		<action name="luuDuLieuHoaDonDatPhong" class="core.controller.Controller_HoaDonDatPhong"
 			method="saveOrUpdate">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet -->
-		<action name="xemChiTietHoaDon" class="core.controller.Controller_HoaDonDatPhong"
+		<action name="xemChiTietHoaDonDatPhong" class="core.controller.Controller_HoaDonDatPhong"
 			method="viewDetail">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xem chi tiet va chinh sua -->
-		<action name="xemChiTietVaChinhSuaHoaDon" class="core.controller.Controller_HoaDonDatPhong"
+		<action name="xemChiTietVaChinhSuaHoaDonDatPhong" class="core.controller.Controller_HoaDonDatPhong"
 			method="viewDetailAndEdit">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
 		</action>
 
 		<!-- Xoa chức năng -->
-		<action name="deleteHoaDon" class="core.controller.Controller_HoaDonDatPhong"
+		<action name="deleteHoaDonDatPhong" class="core.controller.Controller_HoaDonDatPhong"
 			method="delete">
 			<result name="SUCCESS">/index.jsp</result>
 			<result name="FAIL">/index.jsp</result>
@@ -734,6 +734,9 @@
 			<result name="FAIL">/index.jsp</result>
 		</action>
 		<!-- kết thúc xử lý  -->
+		
+		
+		
 		
 		
 

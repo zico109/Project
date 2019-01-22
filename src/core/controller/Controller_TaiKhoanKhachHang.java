@@ -26,18 +26,44 @@ public class Controller_TaiKhoanKhachHang extends TaiKhoanKhachHang implements Z
 	String tuKhoa;
 	String duongDanTrang = "pages/taikhoankhachhangs.jsp";
 	String duongDanTrangView = "pages/taikhoankhachhang.jsp";
-	String duongDanTrangViewDK = "pages/login.jsp";
-	String tenCotTimDoiTuong = "maKH";
+	String duongDanTrangViewDK = "login.jsp";
+	String tenCotTimDoiTuong = "maDangNhap";
 	String maObj;
-	String maKH;
+	String maKhachHang;
 	String s_ngayTao;
 	String maNhomPhanQuyen;
 	String matKhauHienTai;
+	
+	String maKH;
+	/**
+	 * @return the maKH
+	 */
+	public String getMaKH() {
+		return maKH;
+	}
+	/**
+	 * @param maKH the maKH to set
+	 */
+	public void setMaKH(String maKH) {
+		this.maKH = maKH;
+	}
 	/**
 	 * @return the timKiemTheo
 	 */
 	public String getTimKiemTheo() {
 		return timKiemTheo;
+	}
+	/**
+	 * @return the maKhachHang
+	 */
+	public String getMaKhachHang() {
+		return maKhachHang;
+	}
+	/**
+	 * @param maKhachHang the maKhachHang to set
+	 */
+	public void setMaKhachHang(String maKhachHang) {
+		this.maKhachHang = maKhachHang;
 	}
 	/**
 	 * @param timKiemTheo the timKiemTheo to set
@@ -93,15 +119,7 @@ public class Controller_TaiKhoanKhachHang extends TaiKhoanKhachHang implements Z
 	/**
 	 * @return the maKhachHang
 	 */
-	public String getMaKH() {
-		return maKH;
-	}
-	/**
-	 * @param maKhachHang the maKhachHang to set
-	 */
-	public void setMaKH(String maKH) {
-		this.maKH = maKH;
-	}
+
 	
 	public KhachHang getKhachHang(){
 		ObjectDAO dao_khachHang = new DAO_KhachHang();
@@ -270,6 +288,7 @@ public class Controller_TaiKhoanKhachHang extends TaiKhoanKhachHang implements Z
 		TaiKhoanKhachHang obj = new TaiKhoanKhachHang();
 		obj.anhDaiDien = getAnhDaiDien();
 		obj.maDangNhap = getMaDangNhap();
+		obj.khachHang = getKhachHang();
 		if (!getMatKhau().equals(getKiemTraMatKhau())) {
 			obj.matKhau = Util_MD5.md5(getMatKhau());
 		} else {

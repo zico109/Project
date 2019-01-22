@@ -10,7 +10,7 @@
 <%
 	String tenLop = "HoaDonDatPhong";
 	String tenTrang = "Quản lý hóa đơn";
-	String trangDanhSach = "index.jsp?p=pages/hoadondatphongs.jsp";
+//	String trangDanhSach = "index.jsp?p=pages/hoadondatphongs.jsp";
 	String[] tk_value = { "soHD", "trangThaiThanhToan", "ngayDat", "thanhTien", "khachHang", "nhanVien",
 			"loaiPhong", "thongTinDatPhong" };
 	String[] tk_show = { "Số hóa đơn", "Trạng thái thanh toán", "Ngày đặt", "Thành tiền", "Khách hàng",

@@ -10,7 +10,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <head>
-<title>Bright Hotel - Free Bootstrap 4 Template by Colorlib</title>
+<title>Smart Hotel - Free Bootstrap 4 Template by Colorlib</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,7 +36,7 @@
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="index.html">Smart Hostel</a>
+			<a class="navbar-brand" href="home.jsp">Smart Hostel</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#ftco-nav" aria-controls="ftco-nav"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +48,7 @@
 					<li class="nav-item"><a href="home.jsp" class="nav-link">Home</a></li>
 					<li class="nav-item active"><a href="rooms.jsp"
 						class="nav-link">Rooms</a></li>
-					<li class="nav-item"><a href="services.jsp" class="nav-link">Services</a></li>
+					<li class="nav-item"><a href="beds.jsp" class="nav-link">Beds</a></li>
 					<li class="nav-item"><a href="about.jsp" class="nav-link">About
 							Us</a></li>
 					<li class="nav-item"><a href="index.jsp" class="nav-link">Account</a></li>
@@ -212,7 +212,7 @@
 	<!-- BEGIN HEADER -->
 	<div class="header">
 		<div class="container">
-			<a class="site-logo" href="rooms.jsp">GYM Shop</a> <a
+			<a class="site-logo" href="rooms.jsp">Rooms</a> <a
 				href="javascript:void(0);" class="mobi-toggler"><i
 				class="fa fa-bars"></i></a>
 
@@ -224,18 +224,6 @@
 
 
 
-					<li class="menu-search"><span class="sep"></span> <i
-						class="fa fa-search search-btn"></i>
-						<div class="search-box">
-							<form action="#">
-								<div class="input-group">
-									<input type="text" placeholder="Search" class="form-control">
-									<span class="input-group-btn">
-										<button class="btn btn-primary" type="submit">Search</button>
-									</span>
-								</div>
-							</form>
-						</div></li>
 					<!-- END TOP SEARCH -->
 				</ul>
 
@@ -249,9 +237,8 @@
 		<div class="container">
 			<div class="container-inner">
 				<h1>
-					<span>MEN</span> CATEGORY
+					<span>Rooms</span> CATEGORY
 				</h1>
-				<em>Over 4000 Items are available here</em>
 			</div>
 		</div>
 	</div>

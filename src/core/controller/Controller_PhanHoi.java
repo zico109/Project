@@ -89,7 +89,7 @@ public class Controller_PhanHoi extends PhanHoi implements ZEController<PhanHoi>
 
 	public KhachHang getKhachHang() {
 		ObjectDAO<KhachHang> dao_khachhang= new DAO_KhachHang();
-		ArrayList<KhachHang> list_khachhang= dao_khachhang.listByColumns("maSinhVien", getMaKH());
+		ArrayList<KhachHang> list_khachhang= dao_khachhang.listByColumns("maKH", getMaKH());
 		if(list_khachhang.size()>0)
 			return list_khachhang.get(0);
 		else

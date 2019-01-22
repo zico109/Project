@@ -11,7 +11,14 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<link
+	href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<link href="css/reg.css" rel="stylesheet" id="css">
+<script
+	src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <%
 	String tenLop = "TaiKhoanKhachHang";
 	String tenTrang = "Đăng ký tài khoản Khách Hàng ";
@@ -22,6 +29,12 @@
 <%-- <%@ include file="../../hostelPartial/code-header.jsp"%> --%>
 
 <%
+
+
+// String hostDangky = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+// + request.getContextPath() + "/index.jsp?p=login.jsp";
+
+
 	String mode = session.getAttribute("mode") + "";
 	String tenTrangChiTiet = "";
 	tenTrangChiTiet = mode.equals("addNew") ? "Thêm mới" : tenTrangChiTiet;
@@ -38,10 +51,9 @@
 			obj = (TaiKhoanKhachHang) session.getAttribute("obj");
 		}
 	}
-	
+
 	String msg = request.getSession().getAttribute("msg") + "";
 	msg = msg.equals("null") ? "" : msg;
-	
 %>
 <div class="row">
 	<div class="col-lg-12">
@@ -49,11 +61,13 @@
 			-
 			<%=tenTrangChiTiet%>
 		</h4>
-		 <li class="nav-item"><a href="home.jsp" class="nav-link">Trang Chủ</a></li>
+		<li class="nav-item"><a href="home.jsp" class="nav-link">Trang
+				Chủ</a></li>
 	</div>
 	<!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
+
 <form action="luuDuLieu<%=tenLop%>.action" method="post">
 	<div class="row">
 		<div class="col-lg-12">
@@ -74,44 +88,48 @@
 								<!-- 	</div> -->
 
 								<!-- 	<div class="col-md-4" style="padding: 1px"> -->
-								<button type="submit" class="btn btn-default" href="login.jsp">
+								<button type="submit" class="btn btn-default" >
+								
+							
+								
 									<img src="content/images/save-32.png" width="16px"
 										height="16px" /> &nbsp; Đăng ký
 								</button>
+								
+								
+								
 								<!-- 	</div> -->
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="panel-body" >
+				<div class="panel-body">
 					<div class="row" style="padding: 10px">
 						<div class="row">
 							<div class="col-lg-6">
 								<div class="form-group">
 									<label>Mã đăng nhập</label> <input class="form-control"
 										name="maDangNhap"
-										value="<%=(obj != null ? obj.getMaDangNhap() : "")%>"
-										>
+										value="<%=(obj != null ? obj.getMaDangNhap() : "")%>">
 								</div>
 								<div class="form-group">
 									<label>Mật khẩu</label> <input class="form-control"
 										name="matKhau" type="password"
-										value="<%=(obj != null ? obj.getMatKhau() : "")%>"
-										>
+										value="<%=(obj != null ? obj.getMatKhau() : "")%>">
 								</div>
-								
-								
+
+
 								<div class="form-group">
 									<label>Họ và tên</label> <input class="form-control"
 										name="hoVaTen"
-										value="<%=(obj != null ? obj.getHoVaTen() : "")%>"
-										>
+										value="<%=(obj != null ? obj.getHoVaTen() : "")%>">
 								</div>
 								<div class="form-group">
-								
-									<label style="display:block"></label><select style="display: block" class="form-control"
+
+									<label style="display: block"></label><select
+										style="display: block" class="form-control"
 										name="maNhomPhanQuyen">
-										
+
 										<%
 											ObjectDAO dao_nhomPhanQuyen = new DAO_NhomPhanQuyen();
 											ArrayList<NhomPhanQuyen> listNhomPhanQuyen = dao_nhomPhanQuyen.listAll();
@@ -136,26 +154,25 @@
 							</div>
 							<div class="col-lg-6">
 
-<!-- 								<div class="form-group"> -->
-<!-- 								<label style="display:block"></label> -->
-<!-- 								<select style="display: block" class="form-control" -->
-<!-- 										name="trangThaiHoatDong"> -->
-<%-- 										<input value="<%=obj != null && obj.isTrangThaiHoatDong() == true ? "selected" : ""%>" --%>
-										
-<!-- 										readonly required="required"> -->
-											
-											
-<!-- 											</select> -->
-<!-- 								</div> -->
-								
-								
+								<!-- 								<div class="form-group"> -->
+								<!-- 								<label style="display:block"></label> -->
+								<!-- 								<select style="display: block" class="form-control" -->
+								<!-- 										name="trangThaiHoatDong"> -->
+								<%-- 										<input value="<%=obj != null && obj.isTrangThaiHoatDong() == true ? "selected" : ""%>" --%>
+
+								<!-- 										readonly required="required"> -->
+
+
+								<!-- 											</select> -->
+								<!-- 								</div> -->
+
+
 								<div class="form-group">
 									<label>Email</label> <input class="form-control" name="email"
-										value="<%=(obj != null ? obj.getEmail() : "")%>"
-										>
+										value="<%=(obj != null ? obj.getEmail() : "")%>">
 								</div>
-								
-								
+
+
 								<div class="form-group">
 									<label>Mã khách hàng <span class="text-danger">(*)</span></label>
 									<input class="form-control" name="maKH"
@@ -170,8 +187,7 @@
 						</div>
 						<div class="panel-footer" style="text-align: left;">
 							<div class="col-md-5"></div>
-							<div class="col-md-7">
-							</div>
+							<div class="col-md-7"></div>
 						</div>
 						<!-- /.col-lg-6 (nested) -->
 						<!-- /.col-lg-6 (nested) -->

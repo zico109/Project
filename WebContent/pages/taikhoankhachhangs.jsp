@@ -1,3 +1,4 @@
+<%@page import="core.model.KhachHang"%>
 <%@page import="core.utils.Util_Date"%>
 <%@page import="core.modelDAO.DAO_TaiKhoan"%>
 <%@page import="core.model.TaiKhoan"%>
@@ -76,12 +77,36 @@
 					<tr class="odd gradeX">
 						<td><%=obj.getMaDangNhap()%></td>
 						<td><%=obj.getLoaiTaiKhoan() != null ? obj.getLoaiTaiKhoan() : ""%></td>
-						<td><%=obj.isTrangThaiHoatDong()%></td>
+						<td><%=obj.isTrangThaiHoatDong() == true ? "Hoạt động" : "Không hoạt động"%></td>
 						<td><%=obj.getEmail() != null ? obj.getEmail() : ""%></td>
-						<td><%=obj.getHoVaTen() != null ? obj.getHoVaTen() : ""%></td>
+						<td><%=obj != null && obj.getKhachHang() != null ? obj.getKhachHang().getHoVaTenKH() : ""%></td>
 
-						<td style="text-align: center;"><%@ include
-								file="../../hostelPartial/menupullcuadoituong.jsp"%></td>
+						<td style="text-align: center;">
+							<%-- 						<%@ include --%> <%-- 								file="../../hostelPartial/menupullcuadoituong.jsp"%></td> --%>
+
+							<div class="pull-center">
+								<div class="btn-group">
+									<button type="button"
+										class="btn btn-default btn-xs dropdown-toggle"
+										data-toggle="dropdown">
+										<img src="content/images/menu-16.png" /> Chọn chức năng <span
+											class="caret"></span>
+									</button>
+									<ul class="dropdown-menu pull-right" role="menu">
+										<li><a
+											href="xemChiTiet<%=tenLop%>.action?maobj=<%=maDoiTuong%>"><img
+												src="content/images/detail-16.png" />&nbsp;&nbsp; Xem chi
+												tiết</a></li>
+										<li id="xemChiTietVaChinhSuaDoiTuong"><a
+											href="xemChiTietVaChinhSua<%=tenLop%>.action?maobj=<%=maDoiTuong%>"><img
+												src="content/images/edit-16.png" />&nbsp;&nbsp; Chỉnh sửa</a></li>
+										<li id="xoaDoiTuong"><a id="<%=tenLop%>"
+											title="<%=maDoiTuong%>" target="<%=tenDoiTuong%>"
+											onclick="confirmDelete(this)"><img
+												src="content/images/delete-16.png" />&nbsp;&nbsp; Xóa</a></li>
+									</ul>
+								</div>
+							</div>
 					</tr>
 					<%
 						}

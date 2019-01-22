@@ -84,9 +84,21 @@
 										value="<%=(obj != null ? obj.getHoVaTen() : "")%>"
 										<%=(modeView ? " disabled " : "")%>>
 								</div>
+								<div class="form-group">
+<%-- 									<label>Câu hỏi bí mật</label> <input class="form-control"
+										name="cauHoiBiMat"
+										value="<%=(obj != null && obj.getCauHoiBiMat() != null ? obj.getCauHoiBiMat() : "")%>"
+										<%=(modeView ? " disabled " : "")%>>
+								</div>
+								<div class="form-group">
+									<label>Trả lời câu hỏi bí mật</label> <input
+										class="form-control" name="traLoiCauHoiBiMat" type="password"
+										value="<%=(obj != null && obj.getTraLoiCauHoiBiMat() != null ? obj.getTraLoiCauHoiBiMat() : "")%>"
+										<%=(modeView ? " disabled " : "")%>>
+								</div> --%>
 							</div>
 							<div class="col-lg-6">
-								
+
 								<div class="form-group">
 									<label>Trạng thái hoạt động</label> <select
 										class="form-control" name="trangThaiHoatDong"
@@ -106,7 +118,7 @@
 								</div>
 								<div class="form-group">
 									<label>Nhóm phân quyền</label> <select class="form-control"
-										name="maNhomPhanQuyen"<%=(modeView ? " disabled " : "")%>>
+										name="maNhomPhanQuyen" <%=modeView ? "disabled" : ""%>>
 										<option></option>
 										<%
 											ObjectDAO dao_nhomPhanQuyen = new DAO_NhomPhanQuyen();
@@ -116,11 +128,11 @@
 												if (obj != null && obj.getNhomPhanQuyen() != null
 														&& obj.getNhomPhanQuyen().getMaNhomPhanQuyen().equals(npq.maNhomPhanQuyen)) {
 										%>
-										<option value="<%=npq.maNhomPhanQuyen%>" selected="selected"><%=npq.maNhomPhanQuyen%></option>
+										<option value="<%=npq.maNhomPhanQuyen%>" selected="selected"><%=npq.tenNhomPhanQuyen%></option>
 										<%
 											} else {
 										%>
-										<option value="<%=npq.maNhomPhanQuyen%>"><%=npq.maNhomPhanQuyen%></option>
+										<option value="<%=npq.maNhomPhanQuyen%>"><%=npq.tenNhomPhanQuyen%></option>
 										<%
 											}
 										%>
@@ -131,15 +143,28 @@
 								</div>
 								<div class="form-group">
 									<label>Mã khách hàng</label> <input class="form-control"
-										name="maKH"
-										value="<%=(obj != null && obj.getKhachHang()!=null? obj.getKhachHang().getMaKH() :"" )%>"
+										name="maKhachHang"
+										value="<%=(obj != null && obj.getKhachHang() != null ? obj.getKhachHang().getMaKH() : "")%>"
 										<%=(modeView ? " disabled " : "")%>>
 								</div>
+								
 								<div class="form-group">
-									<input class="form-control"
-										name="s_ngayTao" type="hidden"
-										value="<%=(obj != null &&obj.getNgayTao()!=null? Util_Date.dateToString(obj.getNgayTao()) : new Date())%>"
-										>
+									<input class="form-control" name="s_ngayTao" type="hidden"
+										value="<%=(obj != null && obj.getNgayTao() != null ? Util_Date.dateToString(obj.getNgayTao()) : new Date())%>">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-12">
+<%-- 								<div class="form-group">
+									<label>Mô tả</label>
+									<textarea class="form-control" cols="80" id="editor1" rows="5"
+										name="moTa" <%=(modeView ? " disabled " : "")%>><%=(obj != null && obj.getMoTa() != null ? obj.getMoTa() : "")%></textarea>
+								</div> --%>
+								<div class="form-group">
+									<label>Ghi chú</label>
+									<textarea class="form-control" cols="80" id="editor2" rows="5"
+										name="ghiChu" <%=(modeView ? " disabled " : "")%>><%=(obj != null && obj.getGhiChu() != null ? obj.getGhiChu() : "")%></textarea>
 								</div>
 							</div>
 						</div>
