@@ -35,7 +35,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"><a href="home.jsp" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="rooms.jsp" class="nav-link">Rooms</a></li>
-          <li class="nav-item"><a href="services.jsp" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="beds.jsp" class="nav-link">Beds</a></li>
           <li class="nav-item "><a href="about.jsp" class="nav-link">About Us</a></li>
           <li class="nav-item"><a href="blog.jsp" class="nav-link">Blog</a></li>
 					<li class="nav-item"><a href="dangky.jsp" class="nav-link">Register</a></li>

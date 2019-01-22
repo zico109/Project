@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 
 @Entity
@@ -18,6 +19,7 @@ public class Phong implements Comparable<Phong> {
 /*	public Date thoiGianCapNhat;*/
 	@ManyToOne(fetch = FetchType.EAGER)
 	public LoaiPhong loaiPhong;
+	
 	/**
 	 * 
 	 */

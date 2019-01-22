@@ -1,16 +1,21 @@
+<%@page import="core.utils.CartUtil"%>
+<%@page import="core.model.CartInfo"%>
 <%@page import="core.dao.LoaiPhongDAO"%>
 <%@page import="core.model.LoaiPhong"%>
 <%@page import="core.modelDAO.DAO_LoaiPhong"%>
 <%@page import="core.dao.LoaiPhongDAO"%>
 <%@page import="core.dao.PhongDAO"%>
+<%@page import="core.dao.GiuongDAO"%>
 <%@page import="core.model.Phong"%>
+<%@page import="core.model.Giuong"%>
 <%@page import="core.model.Cart"%>
 <%@page import="core.modelDAO.DAO_Phong"%>
+<%@page import="core.dao.GiuongDAO"%>
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <head>
-<title>Smart Hostel - Free Bootstrap 4 Template by Colorlib</title>
+<title>Smart Hotel - Free Bootstrap 4 Template by Colorlib</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,7 +36,26 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+<%
+		PhongDAO phongDAO = new PhongDAO();
+		GiuongDAO giuongDAO = new GiuongDAO();
+		String maGiuong = "";
+		if (request.getParameter("giuong") != null) {
+			maGiuong = request.getParameter("giuong");
+		}
+		String maPhong = "";
+		if (request.getParameter("phong") != null) {
+			maPhong = request.getParameter("phong");
+		}
+		Cart cart = (Cart) session.getAttribute("cart");
+		if (cart == null) {
+			cart = new Cart();
+			session.setAttribute("cart", cart);
+		}
+		
+		CartInfo myCart = CartUtil.getCartInSession(request);
+		
+	%>
 	<nav
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
@@ -51,9 +75,13 @@
 					<li class="nav-item"><a href="beds.jsp" class="nav-link">Beds</a></li>
 					<li class="nav-item"><a href="about.jsp" class="nav-link">About
 							Us</a></li>
-					<li class="nav-item"><a href="blog.jsp" class="nav-link">Blog</a></li>
+					<li class="nav-item"><a href="index.jsp" class="nav-link">Account</a></li>
 					<li class="nav-item"><a href="dangky.jsp" class="nav-link">Register</a></li>
 					<li class="nav-item"><a href="login.jsp" class="nav-link">Login</a></li>
+					<div class="top-cart-info">
+					<a href="./cart.jsp" class="top-cart-info-count"><%=myCart.getQuantityTotal()%></a>
+					<a href="javascript:void(0);" class="top-cart-info-value">vnđ<%=myCart.getQuantityTotal()*10%></a>
+				</div>
 				</ul>
 			</div>
 		</div>
@@ -190,29 +218,28 @@
 	</div>
 
 	<!-- Body BEGIN -->
-<body class="ecommerce">
+<!-- <body class="ecommerce"> -->
 
-<%
-		LoaiPhongDAO loaiPhongDAO = new LoaiPhongDAO();
-		PhongDAO phongDAO = new PhongDAO();
-		String maPhong = "";		
-		if (request.getParameter("phong") != null) {
-			maPhong = request.getParameter("phong");
-		}
-		String maLP = "";
-		if (request.getParameter("loaiphong") != null) {
-			maLP = request.getParameter("loaiphong");
-		}
-	%>
 	<!-- BEGIN HEADER -->
 	<div class="header">
 		<div class="container">
-			<a class="site-logo" href="rooms.jsp">Room</a> <a
+			<a class="site-logo" href="beds.jsp">Beds</a> <a
 				href="javascript:void(0);" class="mobi-toggler"><i
 				class="fa fa-bars"></i></a>
 
+			<!-- BEGIN NAVIGATION -->
+			<div class="header-navigation">
 
-				
+				<ul>
+					<li><a href="home.jsp">Trang chủ</a></li>
+
+
+
+					<!-- END TOP SEARCH -->
+				</ul>
+
+			</div>
+			<!-- END NAVIGATION -->
 		</div>
 	</div>
 	<!-- Header END -->
@@ -221,8 +248,9 @@
 		<div class="container">
 			<div class="container-inner">
 				<h1>
-					<span>ROOMS</span> CATEGORY
+					<span>Beds</span> CATEGORY
 				</h1>
+
 			</div>
 		</div>
 	</div>
@@ -233,17 +261,21 @@
 			<div class="row margin-bottom-40">
 				<!-- BEGIN SIDEBAR -->
 				<div class="sidebar col-md-3 col-sm-5">
-				<ul class="list-group margin-bottom-25 sidebar-menu">
-						<li class="list-group-item clearfix"><a
-							href="rooms.jsp"><i
-								class="fa fa-angle-right"></i>Tất cả loại phòng</a></li>
+					<ul class="list-group margin-bottom-25 sidebar-menu">
+						<li class="list-group-item clearfix"><a href="beds.jsp"><i
+								class="fa fa-angle-right"></i>Tất cả phòng</a></li>
 					</ul>
 					<%
-						for (LoaiPhong lp : loaiPhongDAO.getListLoaiPhong()) {
+						for (Phong p : phongDAO.getListAllPhong()) {
 					%>
 					<ul class="list-group margin-bottom-25 sidebar-menu">
 						<li class="list-group-item clearfix"><a
-							href="rooms.jsp?loaiphong=<%=lp.getMaLP()%>"><i class="fa fa-angle-right"></i><%=lp.getTenLP()%></a></li>
+							href="caterooms.jsp?loaiphong=<%=p.getMaPhong()%>"><i
+								class="fa fa-angle-right"></i><%=p.getTenPhong()%> </a></li>
+						<li class="list-group-item clearfix"><a
+							href="caterooms.jsp?loaiphong=<%=p.getMaPhong()%>"><i
+								class="fa fa-angle-right"></i><%=p.getTenPhong()%> </a></li>
+
 					</ul>
 					<%
 						}
@@ -256,16 +288,16 @@
 							<a href="javascript:;"><i class="fa fa-th-large"></i></a> <a
 								href="javascript:;"><i class="fa fa-th-list"></i></a>
 						</div>
-						<div class="col-md-10 col-sm-10">
+						<div class="col-md-10 col-sm-10" align="center">
 							<p>
-								Loại Phòng</p>
-<%-- 								<%=maLP%>							 --%>
+								Giường
+								<%=maPhong%></p>
 						</div>
 					</div>
-
+					<!-- BEGIN PRODUCT LIST -->
 					<div class="row product-list" align="center">
 						<%
-							for (Phong p : phongDAO.getListAllPhong()) {
+							for (Giuong g : giuongDAO.getListAllGiuong()) {
 						%>
 						<div class="col-sm-4">
 							<div class="product-item">
@@ -273,16 +305,18 @@
 									<div>
 										<a href="#"><img src="images/img_1.jpg"
 											alt="Image placeholder"> <a
-											href="chitietphong.jsp?maPhong=<%=p.getMaPhong()%>"
+											href="chitietphong.jsp?maPhong=<%=g.getMaGiuong()%>"
 											class="btn btn-default fancybox-fast-view">View</a>
+											<a href="CartServlet?command=plus&maGiuong=<%=g.getMaGiuong()%>"
+									class="btn btn-default add2cart">Thêm vào giỏ</a>
 									</div>
 								</div>
 
 								<h3>
-									<a href="shop-item.html"><%=p.getTenPhong()%></a>
+									<a href="shop-item.html"><%=g.getMaGiuong()%></a>
 								</h3>
 								<h3>
-									<a href="shop-item.html"><%=p.getTrangThai()%></a>
+									<a href="shop-item.html"><%=g.getTrangThai()%></a>
 								</h3>
 							</div>
 
@@ -291,26 +325,24 @@
 							}
 						%>
 					</div>
-
-
 					<!-- END PRODUCT LIST -->
-<!-- 					BEGIN PAGINATOR -->
-<!-- 					<div class="row"> -->
-<!-- 						<div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of 10 -->
-<!-- 							total</div> -->
-<!-- 						<div class="col-md-8 col-sm-8"> -->
-<!-- 							<ul class="pagination pull-right"> -->
-<!-- 								<li><a href="javascript:;">&laquo;</a></li> -->
-<!-- 								<li><a href="javascript:;">1</a></li> -->
-<!-- 								<li><span>2</span></li> -->
-<!-- 								<li><a href="javascript:;">3</a></li> -->
-<!-- 								<li><a href="javascript:;">4</a></li> -->
-<!-- 								<li><a href="javascript:;">5</a></li> -->
-<!-- 								<li><a href="javascript:;">&raquo;</a></li> -->
-<!-- 							</ul> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 					END PAGINATOR -->
+					<!-- BEGIN PAGINATOR -->
+					<div class="row">
+						<!-- 						<div class="col-md-4 col-sm-4 items-info">Items 1 to 9 of 10 -->
+						<!-- 							total</div> -->
+						<!-- 						<div class="col-md-8 col-sm-8"> -->
+						<!-- 							<ul class="pagination pull-right"> -->
+						<!-- 								<li><a href="javascript:;">&laquo;</a></li> -->
+						<!-- 								<li><a href="javascript:;">1</a></li> -->
+						<!-- 								<li><span>2</span></li> -->
+						<!-- 								<li><a href="javascript:;">3</a></li> -->
+						<!-- 								<li><a href="javascript:;">4</a></li> -->
+						<!-- 								<li><a href="javascript:;">5</a></li> -->
+						<!-- 								<li><a href="javascript:;">&raquo;</a></li> -->
+						<!-- 							</ul> -->
+						<!-- 						</div> -->
+					</div>
+					<!-- END PAGINATOR -->
 				</div>
 				<!-- END CONTENT -->
 			</div>
@@ -318,42 +350,9 @@
 		</div>
 	</div>
 
-<!-- 	<!-- BEGIN BRANDS --> -->
-<!-- 	<div class="brands"> -->
-<!-- 		<div class="container"> -->
-<!-- 			<div class="owl-carousel owl-carousel6-brands"> -->
-<!-- 				<a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/canon.jpg" alt="canon" -->
-<!-- 					title="canon"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/esprit.jpg" alt="esprit" -->
-<!-- 					title="esprit"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a> -->
-<!-- 				<a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/next.jpg" alt="next" -->
-<!-- 					title="next"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/puma.jpg" alt="puma" -->
-<!-- 					title="puma"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/zara.jpg" alt="zara" -->
-<!-- 					title="zara"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/canon.jpg" alt="canon" -->
-<!-- 					title="canon"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/esprit.jpg" alt="esprit" -->
-<!-- 					title="esprit"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/gap.jpg" alt="gap" title="gap"></a> -->
-<!-- 				<a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/next.jpg" alt="next" -->
-<!-- 					title="next"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/puma.jpg" alt="puma" -->
-<!-- 					title="puma"></a> <a href="shop-product-list.html"><img -->
-<!-- 					src="content/assets/pages/img/brands/zara.jpg" alt="zara" -->
-<!-- 					title="zara"></a> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
-<!-- 	<!-- END BRANDS --> -->
+
 
 	<!-- BEGIN STEPS -->
-
 	<!-- Load javascripts at bottom, this will reduce page load time -->
 	<!-- BEGIN CORE PLUGINS(REQUIRED FOR ALL PAGES) -->
 	<!--[if lt IE 9]>
@@ -409,7 +408,7 @@
 		});
 	</script>
 	<!-- END PAGE LEVEL JAVASCRIPTS -->
-</body>
+<!-- </body> -->
 
 
 

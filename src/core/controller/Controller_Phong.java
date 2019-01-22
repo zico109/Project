@@ -7,17 +7,24 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
+import org.apache.log4j.chainsaw.Main;
 import org.apache.struts2.ServletActionContext;
+
+import com.lowagie.text.List;
 
 import core.dao.ObjectDAO;
 import core.model.Phong;
+import core.model.TrangThaiPhong;
 import core.modelDAO.DAO_Phong;
+import core.modelDAO.DAO_TrangThaiPhong;
 import core.modelDAO.DAO_LoaiPhong;
 import core.model.LoaiPhong;
 import core.model.NhanVien;;
 
 public class Controller_Phong extends Phong implements ZEController{
 	ObjectDAO dao = new DAO_Phong();
+	ObjectDAO dao1 = new DAO_TrangThaiPhong();
 	
 	String timKiemTheo;
 	String tuKhoa;
@@ -26,6 +33,35 @@ public class Controller_Phong extends Phong implements ZEController{
 	String tenCotTimDoiTuong = "maPhong";
 	String maObj;
 	String maLP;
+	
+	//my_search()
+	String loaiP;
+	/**
+	 * @return the loaiP
+	 */
+	public String getLoaiP() {
+		return loaiP;
+	}
+	/**
+	 * @param loaiP the loaiP to set
+	 */
+	public void setLoaiP(String loaiP) {
+		this.loaiP = loaiP;
+	}
+	/**
+	 * @return the slNguoi
+	 */
+	public String getSlNguoi() {
+		return slNguoi;
+	}
+	/**
+	 * @param slNguoi the slNguoi to set
+	 */
+	public void setSlNguoi(String slNguoi) {
+		this.slNguoi = slNguoi;
+	}
+
+	String slNguoi;
 	
 	File excel_myFile;
 	String excel_myFileContentType;
@@ -278,5 +314,41 @@ public class Controller_Phong extends Phong implements ZEController{
 		return null;
 	}
 	
-	
+//	public ArrayList<Phong> my_search() {
+//		/*HttpServletRequest request = ServletActionContext.getRequest();
+//		HttpSession session = request.getSession();*/
+//		String loai = "Phòng mix thuong";
+//		int sl = 7;
+//		ArrayList<Phong> arr1 = dao.listAll();
+//		ArrayList<Phong> arr2 = new ArrayList<>();
+//		for (Phong phong : arr1) {
+//			
+//			ArrayList<TrangThaiPhong> arr3 = dao1.listByColumns("phong", phong.getMaPhong());
+//			int slDaDat = 0;
+//			//System.out.println("Ádfjhsdkjfhjsdgfjsdgh"+ arr3.get(0));
+//			if(arr3.size()>0){
+//				for (TrangThaiPhong trangThaiPhong : arr3) {
+//					slDaDat += Integer.parseInt(trangThaiPhong.getSoLuongKhach());
+//				}
+//			}
+//			//System.out.println(phong.getLoaiPhong().getTenLP());
+//			if(phong.getLoaiPhong()!= null && phong.getLoaiPhong().getTenLP().equals(loai) && (10 - slDaDat) >= sl)
+//				arr2.add(phong);
+//		}
+//		
+//		return arr2;
+//		/*session.setAttribute("arr", arr2);
+//		session.setAttribute("checkTimKiem1", "true");
+//		session.setAttribute("p", duongDanTrang);
+//		return "SUCCESS";*/
+//	}
+//	
+//	public static void main(String[] args) {
+//		ArrayList<Phong> phongs = new Controller_Phong().my_search();
+//		for (Phong phong : phongs) {
+//			System.out.println(phong.toString());
+//		}
+//		
+//		//new Controller_Phong().my_search();
+//	}
 }

@@ -47,7 +47,7 @@
 		class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
 		id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="index.jsp">SMART HOTEL</a>
+			<a class="navbar-brand" href="home.jsp">SMART HOSTEL</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#ftco-nav" aria-controls="ftco-nav"
 				aria-expanded="false" aria-label="Toggle navigation">
@@ -59,7 +59,7 @@
 					<li class="nav-item active"><a href="home.jsp"
 						class="nav-link">Home</a></li>
 					<li class="nav-item"><a href="rooms.jsp" class="nav-link">Rooms</a></li>
-					<li class="nav-item"><a href="services.jsp" class="nav-link">Services</a></li>
+					<li class="nav-item"><a href="beds.jsp" class="nav-link">Beds</a></li>
 					<li class="nav-item"><a href="about.jsp" class="nav-link">About
 							Us</a></li>
 					<li class="nav-item"><a href="index.jsp" class="nav-link">Account</a></li>
@@ -67,14 +67,17 @@
 					<li class="nav-item">
 						<%
 							if (!taiKhoanDangNhap.equals("")) {
-						%><a href="dangXuat.action"
-						class="nav-link"><%=taiKhoanDangNhap%></a> <%
- 	} else {
- %><a
-						href="login.jsp" class="nav-link">Login</a>
+						%>
+						<a  href="dangXuat.action" class="nav-link">
+						<%=taiKhoanDangNhap%>
+						</a> 
+						<%
+ 							} else {
+ 						%>
+ 						<a href="login.jsp" class="nav-link">Login</a>
 						<%
 							}
-						%>>
+						%>
 					</li>
 				</ul>
 			</div>

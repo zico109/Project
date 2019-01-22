@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import org.apache.oro.text.regex.Perl5Pattern;
 
 import core.dao.MySQLConnUtils;
+import core.model.LoaiPhong;
 import core.model.Phong;
 
 public class PhongDAO {
@@ -68,4 +69,26 @@ public class PhongDAO {
 			System.out.println(p.getTenPhong());
 		}
 	}
+	
+	
+	public ArrayList <Phong> getListPhong() throws SQLException, ClassNotFoundException{
+		Connection connection = MySQLConnUtils.getMySQLConnection();
+		String sql  = "SELECT * FROM phong";
+		PreparedStatement ps  = connection.prepareCall(sql);
+		ResultSet rs = ps.executeQuery();
+		ArrayList<Phong> list = new ArrayList<>();
+		while (rs.next()) {
+			Phong phong = new Phong();
+			phong.setMaPhong(rs.getString("maPhong"));
+			phong.setTenPhong(rs.getString("tenPhong"));
+			phong.setSoLuongNguoi(rs.getString("soLuongNguoi"));
+			phong.setTrangThai(rs.getString("trangThai"));
+			list.add(phong);
+			
+		}
+		return list;
+	}
+	
+	
+	
 }

@@ -71,6 +71,11 @@
 
 </head>
 <%
+	String taiKhoanDangNhap = request.getSession().getAttribute("maDangNhap") + "";
+	taiKhoanDangNhap = taiKhoanDangNhap.equals("null") ? "" : taiKhoanDangNhap;
+	System.out.println(taiKhoanDangNhap);
+%>
+<%
 	// Kiểm tra đã đăng nhập
 	// Nếu chưa đăng nhập => chuyển login.jsp
 /* 	String maDangNhap = session.getAttribute("maDangNhap") + "";
@@ -118,6 +123,18 @@
 								&nbsp;&nbsp;Đổi mật khẩu </a></li>		
 						<li><a href=dangXuat.action><i class="fa fa-sign-out"></i>
 								&nbsp;&nbsp;Đăng xuất </a></li>
+								<li class="nav-item">
+						<%
+							if (!taiKhoanDangNhap.equals("")) {
+						%><a href="dangXuat.action"
+						class="nav-link"><%=taiKhoanDangNhap%></a> <%
+ 	} else {
+ %><a
+						href="login.jsp" class="nav-link">Login</a>
+						<%
+							}
+						%>>
+					</li>
 					</ul></li>
 			</ul>
 		</div>

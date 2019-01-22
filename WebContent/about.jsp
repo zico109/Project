@@ -27,7 +27,7 @@
     
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="index.html">BrightHotel</a>
+      <a class="navbar-brand" href="home.jsp">BrightHotel</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="oi oi-menu"></span> Menu
       </button>
@@ -36,7 +36,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"><a href="home.jsp" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="rooms.jsp" class="nav-link">Rooms</a></li>
-          <li class="nav-item"><a href="services.jsp" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="beds.jsp" class="nav-link">Beds</a></li>
           <li class="nav-item active"><a href="about.jsp" class="nav-link">About Us</a></li>
    <li class="nav-item"><a href="index.jsp" class="nav-link">Account</a></li>
  					<li class="nav-item"><a href="dangky.jsp" class="nav-link">Register</a></li>
