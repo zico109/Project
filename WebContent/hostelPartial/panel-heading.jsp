@@ -80,11 +80,13 @@
 						href="themMoi<%=tenLop%>.action" style="text-align: left;"
 						id="nutThemMoi"> <img src="content/images/new-32.png"
 						width="16px" height="16px" /> &nbsp; Thêm mới
-					</a> <a class="btn  btn-default" style="text-align: left;" data-toggle="modal"
-						data-target="#nhapExcelModal"
-						id="nutNhapLieuExcel"> <img src="content/images/excel-32.png"
-						width="16px" height="16px" /> &nbsp; Nhập liệu Excel
-					</a> <a type="button" class="btn  btn-default"
+					</a> 
+<!-- 					<a class="btn  btn-default" style="text-align: left;" data-toggle="modal" -->
+<!-- 						data-target="#nhapExcelModal" -->
+<!-- 						id="nutNhapLieuExcel"> <img src="content/images/excel-32.png" -->
+<!-- 						width="16px" height="16px" /> &nbsp; Nhập liệu Excel -->
+<!-- 					</a> -->
+					 <a type="button" class="btn  btn-default"
 						style="text-align: left;" data-toggle="modal"
 						data-target="#timKiemModal" id="nutTimKiem"> <img
 						src="content/images/search-32.png" width="16px" height="16px" />

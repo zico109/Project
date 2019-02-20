@@ -9,7 +9,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>eUSmart</title>
+<title>LOGIN</title>
  <link rel="shortcut icon" href="favicon.ico"> 
 <!-- Bootstrap Core CSS -->
 <link href="content/css_scripts/bootstrap/css/bootstrap.min.css"

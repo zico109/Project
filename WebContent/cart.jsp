@@ -16,6 +16,7 @@
 <th>ngay tra</th>
 <th>gia phong</th>
 <th>thao tac</th>
+<th>maKH</th>
 
 <%
 CartInfo myCart = CartUtil.getCartInSession(request);
@@ -27,6 +28,7 @@ for(CartLineInfo line : myCart.getCartLines()){
 <td><input type = "date"></td>
 <td>gia phong</td>
 <td>nut xoa ne</td>
+<td>makh</td>
 </tr>
 <%} %>
 </table>

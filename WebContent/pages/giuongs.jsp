@@ -59,7 +59,7 @@
 				<thead>
 					<tr>
 						<th>Mã giường</th>
-						<th>Tên phòng</th>
+						<th>Trạng thái</th>
 						<th>Phòng</th>			
 					</tr>
 				</thead>

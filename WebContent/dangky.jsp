@@ -57,9 +57,10 @@
 %>
 <div class="row">
 	<div class="col-lg-12">
-		<h4 class="page-header"><%=tenTrang%>
-			-
-			<%=tenTrangChiTiet%>
+		<h4 class="page-header">
+<%-- 		<%=tenTrang%> --%>
+			<a class="navbar-brand" href="dangky.jsp">Đăng ký tài khoản</a>
+<%-- 			<%=tenTrangChiTiet%> --%>
 		</h4>
 		<li class="nav-item"><a href="home.jsp" class="nav-link">Trang
 				Chủ</a></li>
